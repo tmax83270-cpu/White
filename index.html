@@ -45,7 +45,6 @@
             </div>
             <div class="card-details">
               <p>Livraison rapide disponible sur Paris et toute l’Île-de-France.</p>
-              <button class="action" data-send='{"action":"livraison"}'>Choisir livraison</button>
             </div>
           </div>
 
@@ -56,7 +55,6 @@
             </div>
             <div class="card-details">
               <p>Retrait local possible dans différents points de rencontre.</p>
-              <button class="action" data-send='{"action":"meetup"}'>Choisir meet-up</button>
             </div>
           </div>
 
@@ -67,7 +65,16 @@
             </div>
             <div class="card-details">
               <p>Ouvert tous les jours de 10h à 22h.</p>
-              <button class="action" data-send='{"action":"horaires"}'>Voir horaires</button>
+            </div>
+          </div>
+
+          <div class="card" data-key="minimum">
+            <div class="card-header">
+              <h3>MINIMUM DE COMMANDE</h3>
+              <p class="chevron">▾</p>
+            </div>
+            <div class="card-details">
+              <p>Le minimum de commande est de 50€.</p>
             </div>
           </div>
         </section>
@@ -77,19 +84,32 @@
       <section class="page" id="page-produits" style="display:none">
         <h2>Nos produits</h2>
         <div class="product-list">
-          <div class="product" data-send='{"product":"Produit A"}'>
-            <p>Produit A</p>
-            <button class="buy-btn">Choisir</button>
+          <div class="product" data-product="cali_weed_us">
+            <p>Cali Weed US 🇺🇸</p>
           </div>
-          <div class="product" data-send='{"product":"Produit B"}'>
-            <p>Produit B</p>
-            <button class="buy-btn">Choisir</button>
+          <div class="product" data-product="cocaine">
+            <p>Cocaine ❄️</p>
           </div>
-          <div class="product" data-send='{"product":"Produit C"}'>
+          <div class="product" data-product="produit_c">
             <p>Produit C</p>
-            <button class="buy-btn">Choisir</button>
+          </div>
+          <div class="product" data-product="produit_d">
+            <p>Produit D</p>
           </div>
         </div>
+      </section>
+
+      <!-- Page produit détaillée -->
+      <section class="page" id="page-produit-detail" style="display:none">
+        <button id="back-to-produits">⬅ Retour</button>
+        <h2 id="product-title"></h2>
+        <p id="product-description"></p>
+        <p id="product-price"></p>
+        <video id="product-video" width="100%" controls>
+          <source id="product-video-src" src="" type="video/mp4">
+          Votre navigateur ne supporte pas la vidéo.
+        </video>
+        <button id="order-btn">COMMANDER</button>
       </section>
 
       <!-- Catégories -->
@@ -99,17 +119,14 @@
         <div class="category">
           <h3 class="category-header">Produits festifs ▾</h3>
           <div class="category-products">
-            <div class="product" data-send='{"product":"Produit A"}'>
-              <p>Produit A</p>
-              <button class="buy-btn">Choisir</button>
+            <div class="product" data-product="cali_weed_us">
+              <p>Cali Weed US 🇺🇸</p>
             </div>
-            <div class="product" data-send='{"product":"Produit B"}'>
-              <p>Produit B</p>
-              <button class="buy-btn">Choisir</button>
+            <div class="product" data-product="cocaine">
+              <p>Cocaine ❄️</p>
             </div>
-            <div class="product" data-send='{"product":"Produit C"}'>
+            <div class="product" data-product="produit_c">
               <p>Produit C</p>
-              <button class="buy-btn">Choisir</button>
             </div>
           </div>
         </div>
@@ -117,13 +134,11 @@
         <div class="category">
           <h3 class="category-header">Menu Weed ▾</h3>
           <div class="category-products">
-            <div class="product" data-send='{"product":"Produit D"}'>
+            <div class="product" data-product="produit_d">
               <p>Produit D</p>
-              <button class="buy-btn">Choisir</button>
             </div>
-            <div class="product" data-send='{"product":"Produit E"}'>
+            <div class="product" data-product="produit_e">
               <p>Produit E</p>
-              <button class="buy-btn">Choisir</button>
             </div>
           </div>
         </div>
@@ -131,13 +146,11 @@
         <div class="category">
           <h3 class="category-header">Produit Hash ▾</h3>
           <div class="category-products">
-            <div class="product" data-send='{"product":"Produit F"}'>
+            <div class="product" data-product="produit_f">
               <p>Produit F</p>
-              <button class="buy-btn">Choisir</button>
             </div>
-            <div class="product" data-send='{"product":"Produit G"}'>
+            <div class="product" data-product="produit_g">
               <p>Produit G</p>
-              <button class="buy-btn">Choisir</button>
             </div>
           </div>
         </div>
