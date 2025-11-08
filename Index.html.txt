@@ -1,0 +1,75 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>THEGD33 - MiniApp</title>
+
+  <!-- Telegram WebApp SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <nav class="nav">
+        <button class="nav-item active">🏠 Accueil</button>
+        <button class="nav-item">🛍️ Produits</button>
+        <button class="nav-item">📱 Catégories</button>
+        <button class="nav-item">✉️ Contact</button>
+      </nav>
+    </header>
+
+    <main class="content">
+      <section class="hero">
+        <div class="hero-bubble">
+          <h1 class="title">THEGD33</h1>
+          <p class="subtitle">Bienvenue sur notre boutique</p>
+        </div>
+      </section>
+
+      <section class="cards">
+        <div class="card" data-key="livraison">
+          <img class="card-icon" src="assets/logo-small.png" alt="" />
+          <div class="card-text">
+            <h3>LIVRAISON</h3>
+            <p class="chevron">▾</p>
+          </div>
+          <div class="card-details">
+            <p>Options de livraison, frais et délais.</p>
+            <button class="action" data-send='{"action":"livraison"}'>Choisir livraison</button>
+          </div>
+        </div>
+
+        <div class="card" data-key="meetup">
+          <img class="card-icon" src="assets/logo-small.png" alt="" />
+          <div class="card-text">
+            <h3>MEET-UP</h3>
+            <p class="chevron">▾</p>
+          </div>
+          <div class="card-details">
+            <p>Retrait local, points de rencontre.</p>
+            <button class="action" data-send='{"action":"meetup"}'>Choisir meet-up</button>
+          </div>
+        </div>
+
+        <div class="card" data-key="horaires">
+          <img class="card-icon" src="assets/logo-small.png" alt="" />
+          <div class="card-text">
+            <h3>HORAIRES</h3>
+            <p class="chevron">▾</p>
+          </div>
+          <div class="card-details">
+            <p>Nos horaires d'ouverture.</p>
+            <button class="action" data-send='{"action":"horaires"}'>Voir horaires</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
