@@ -1,155 +1,150 @@
-const tg = window.Telegram.WebApp;
-tg.expand();
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THEGD33 - MiniApp</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
 
-// --- Navigation onglets ---
-document.querySelectorAll('.nav-item').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+  <!-- Header -->
+  <header class="topbar">
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="THEGD33 Logo" class="logo">
+    </div>
+    <nav class="nav">
+      <button class="nav-item active">🏠 Accueil</button>
+      <button class="nav-item">📱 Catégories</button>
+      <button class="nav-item">🛍️ Produits</button>
+      <button class="nav-item">✉️ Contact</button>
+    </nav>
+  </header>
 
-    let pageId = '';
-    switch (btn.textContent.trim()) {
-      case '🏠 Accueil': pageId = 'page-accueil'; break;
-      case '🛍️ Produits': pageId = 'page-produits'; break;
-      case '📱 Catégories': pageId = 'page-categories'; break;
-      case '✉️ Contact': pageId = 'page-contact'; break;
-    }
+  <main class="content">
 
-    if (pageId) {
-      document.getElementById(pageId).style.display = 'block';
-      if(pageId === 'page-produits') showProductList(document.querySelector('#page-produits .product-list'), Object.keys(productsData));
-    }
-  });
-});
-
-// --- Accueil cartes ---
-document.querySelectorAll('.card').forEach(card => {
-  card.addEventListener('click', () => {
-    card.classList.toggle('expanded');
-  });
-});
-
-// --- Données produits ---
-const productsData = {
-  cali_weed_us: {
-    title: "CALI WEED 🇺🇸",
-    subtitle: "Zkittles 🍒",
-    description: "Sativa Californienne, très puissante.",
-    video: "assets/cali_weed_us.mp4",
-    prices: [{ qty: "10g", price: "90€" }, { qty: "20g", price: "180€" }]
-  },
-  cocaine: {
-    title: "COCAINE ❄️",
-    subtitle: "",
-    description: "Produit de haute pureté.",
-    video: "assets/cocaine.mp4",
-    prices: [{ qty: "1g", price: "80€" }, { qty: "5g", price: "350€" }]
-  },
-  trois_mmc: {
-    title: "3MMC 🇳🇱",
-    subtitle: "Cailloux 🧊",
-    description: "Produit stimulant, effet intense.",
-    video: "assets/3mmc.mp4",
-    prices: [{ qty: "1g", price: "70€" }, { qty: "5g", price: "300€" }]
-  },
-  filtre_73u: {
-    title: "FILTRÉ 73U ⚡️",
-    subtitle: "NO FARM",
-    description: "Hash de haute qualité, bien filtré.",
-    video: "assets/filtre_73u.mp4",
-    prices: [{ qty: "5g", price: "120€" }, { qty: "10g", price: "230€" }]
-  },
-  jaune_mousse: {
-    title: "JAUNE MOUSSE 🧽",
-    subtitle: "Flavors 🌸",
-    description: "Hash aromatique, texture unique.",
-    video: "assets/jaune_mousse.mp4",
-    prices: [{ qty: "5g", price: "110€" }, { qty: "10g", price: "210€" }]
-  }
-};
-
-// --- Produits page ---
-function showProductList(container, keys) {
-  container.innerHTML = '';
-  keys.forEach(k => {
-    const prod = productsData[k];
-    const div = document.createElement('div');
-    div.className = 'product';
-    div.dataset.product = k;
-    div.innerHTML = `
-      <div class="product-top"><img src="assets/${k}.jpg" alt="${prod.title}"></div>
-      <div class="product-bottom">
-        <h2>${prod.title}</h2>
-        <h3>${prod.subtitle}</h3>
-        <div class="voir-btn">VOIR</div>
+    <!-- Accueil -->
+    <section class="page" id="page-accueil">
+      <div class="hero">
+        <h1 class="title">Bienvenue sur notre boutique</h1>
+        <p class="subtitle">Découvrez nos produits et services</p>
       </div>
-    `;
-    container.appendChild(div);
-  });
-}
+      <section class="cards">
+        <div class="card" data-key="livraison">
+          <div class="card-header">
+            <h3>LIVRAISON</h3> <span class="arrow">▼</span>
+          </div>
+          <div class="card-details">
+            <p>Envoyez-nous : nom + commande + adresse exacte, un temps de livraison vous sera communiqué dans les minutes suivant votre message.</p>
+          </div>
+        </div>
+        <div class="card" data-key="meetup">
+          <div class="card-header">
+            <h3>MEET UP</h3> <span class="arrow">▼</span>
+          </div>
+          <div class="card-details">
+            <p>Une adresse discrète en Seine-Saint-Denis (93) vous sera communiquée avec drive disponible comme au McDonald’s.</p>
+          </div>
+        </div>
+        <div class="card" data-key="horaires">
+          <div class="card-header">
+            <h3>HORAIRES</h3> <span class="arrow">▼</span>
+          </div>
+          <div class="card-details">
+            <p>Livraisons: 14h00 - 02h00<br>
+               Meet Up : 13h00 - 03h00<br>
+               Prises de commandes: 10h00 - 06h00</p>
+          </div>
+        </div>
+        <div class="card" data-key="minimum">
+          <div class="card-header">
+            <h3>MINIMUM DE COMMANDE</h3> <span class="arrow">▼</span>
+          </div>
+          <div class="card-details">
+            <p>75/92/93/94/95 : Minimum 50€<br>
+               77/78/91 : Minimum 100€<br>
+               Hors IDF : Minimum 150€</p>
+          </div>
+        </div>
+      </section>
+    </section>
 
-// --- Catégories ---
-const categoriesData = {
-  festifs: ['cocaine', 'trois_mmc'],
-  weed: ['cali_weed_us'],
-  hash: ['filtre_73u', 'jaune_mousse']
-};
+    <!-- Catégories -->
+    <section class="page" id="page-categories" style="display:none">
+      <h2>Catégories</h2>
+      <div class="categories-container">
+        <div class="category-card" data-category="festifs">
+          <div class="category-image"><img src="assets/festifs.jpg" alt="Menu Festif"></div>
+          <div class="category-text">
+            <h3>Menu Festif 🥳</h3>
+            <p class="see-products">Voir les produits &gt;</p>
+            <div class="category-products" style="display:none;"></div>
+          </div>
+        </div>
+        <div class="category-card" data-category="hash">
+          <div class="category-image"><img src="assets/hash.jpg" alt="Menu Hash"></div>
+          <div class="category-text">
+            <h3>Menu Hash 🍫</h3>
+            <p class="see-products">Voir les produits &gt;</p>
+            <div class="category-products" style="display:none;"></div>
+          </div>
+        </div>
+        <div class="category-card" data-category="weed">
+          <div class="category-image"><img src="assets/weed.jpg" alt="Menu Weed"></div>
+          <div class="category-text">
+            <h3>Menu Weed 🌿</h3>
+            <p class="see-products">Voir les produits &gt;</p>
+            <div class="category-products" style="display:none;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-document.querySelectorAll('.category-card').forEach(card => {
-  const category = card.dataset.category;
-  const seeBtn = card.querySelector('.see-products');
-  seeBtn.addEventListener('click', () => {
-    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-    document.getElementById('page-produits').style.display = 'block';
-    showProductList(document.querySelector('#page-produits .product-list'), categoriesData[category]);
-  });
-});
+    <!-- Produits -->
+    <section class="page" id="page-produits" style="display:none">
+      <h2>Nos produits</h2>
+      <div class="product-list"></div>
+    </section>
 
-// --- Ouvrir produit détail ---
-function openProductDetail(key) {
-  const data = productsData[key];
-  document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-  document.getElementById('page-produit-detail').style.display = 'block';
-  document.getElementById('product-title').textContent = data.title;
-  document.getElementById('product-subtitle').textContent = data.subtitle || '';
-  document.getElementById('product-description').textContent = data.description;
-  document.getElementById('product-video-src').src = data.video;
-  document.getElementById('product-video').load();
+    <!-- Page produit détaillée -->
+    <section class="page" id="page-produit-detail" style="display:none">
+      <button id="back-to-produits">⬅ Retour</button>
+      <div id="product-media">
+        <video id="product-video" width="100%" controls>
+          <source id="product-video-src" src="" type="video/mp4">
+        </video>
+      </div>
+      <div class="product-section" id="product-name">
+        <h2 id="product-title"></h2>
+        <h3 id="product-subtitle"></h3>
+      </div>
+      <div class="product-section" id="product-description-container">
+        <h3>📝 Description</h3>
+        <p id="product-description"></p>
+      </div>
+      <div class="product-section" id="product-prices-container">
+        <h3>💰 Prix et quantités</h3>
+        <div id="product-prices" class="price-grid"></div>
+      </div>
+      <div class="product-section" id="product-order">
+        <button id="order-btn">📞 Commander</button>
+      </div>
+    </section>
 
-  const pricesContainer = document.getElementById('product-prices');
-  pricesContainer.innerHTML = '';
-  data.prices.forEach((p, i) => {
-    const div = document.createElement('div');
-    div.className = 'price-option';
-    div.textContent = `${p.qty} : ${p.price}`;
-    if (i === 0) div.classList.add('selected');
-    div.addEventListener('click', () => {
-      document.querySelectorAll('.price-option').forEach(c => c.classList.remove('selected'));
-      div.classList.add('selected');
-    });
-    pricesContainer.appendChild(div);
-  });
-}
+    <!-- Contact -->
+    <section class="page" id="page-contact" style="display:none">
+      <h2>Contact</h2>
+      <div class="contact-buttons">
+        <button class="contact-btn whatsapp">WhatsApp</button>
+        <button class="contact-btn telegram">Telegram</button>
+      </div>
+    </section>
 
-// --- Cliquer sur VOIR ---
-document.addEventListener('click', e => {
-  if (e.target.classList.contains('voir-btn')) {
-    openProductDetail(e.target.closest('.product').dataset.product);
-  }
-});
+  </main>
+</div>
 
-// --- Retour page produits ---
-document.getElementById('back-to-produits').addEventListener('click', () => {
-  document.getElementById('page-produit-detail').style.display = 'none';
-  document.getElementById('page-produits').style.display = 'block';
-});
-
-// --- Commander ---
-document.getElementById('order-btn').addEventListener('click', () => {
-  const selected = document.querySelector('.price-option.selected');
-  const qty = selected ? selected.textContent : '';
-  const productName = document.getElementById('product-title').textContent;
-  tg.sendData(JSON.stringify({ product: productName, quantity: qty }));
-  alert(`Commande envoyée : ${productName} - ${qty}`);
-});
+<script src="app.js"></script>
+</body>
+</html>
