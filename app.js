@@ -18,7 +18,7 @@ document.querySelectorAll('.nav-item').forEach(btn=>{
   });
 });
 
-// Cartes accueil
+// Accueil cartes
 document.querySelectorAll('.card').forEach(card=>{
   card.addEventListener('click',()=>card.classList.toggle('expanded'));
 });
@@ -27,11 +27,10 @@ document.querySelectorAll('.card').forEach(card=>{
 const productsData={
   cali_weed_us:{title:"Cali Weed US 🇺🇸", subtitle:"Zkittles 🍒", description:"Sativa Californienne, très puissante.", video:"assets/cali_weed_us.mp4", prices:[{qty:"10g", price:"90€"},{qty:"20g", price:"180€"},{qty:"50g", price:"400€"}]},
   cocaine:{title:"Cocaine ❄️", subtitle:"", description:"Produit de haute pureté.", video:"assets/cocaine.mp4", prices:[{qty:"1g", price:"80€"},{qty:"5g", price:"350€"}]},
-  zkittles:{title:"Zkittles 🍒", subtitle:"", description:"Variété sucrée.", video:"assets/zkittles.mp4", prices:[{qty:"5g", price:"50€"}]},
   produit_d:{title:"Produit D", subtitle:"", description:"Description D", video:"assets/produit_d.mp4", prices:[{qty:"10g", price:"60€"}]}
 };
 
-// Afficher liste produits
+// Page Produits
 function showProductList(container, keys){
   container.innerHTML='';
   keys.forEach(k=>{
@@ -42,11 +41,9 @@ function showProductList(container, keys){
     container.appendChild(div);
   });
 }
-
-// Page Produits
 showProductList(document.querySelector('#page-produits .product-list'), Object.keys(productsData));
 
-// Cliquer produit -> page détail
+// Ouvrir produit détail
 function openProductDetail(key){
   const data=productsData[key];
   document.querySelectorAll('.page').forEach(p=>p.style.display='none');
@@ -56,12 +53,13 @@ function openProductDetail(key){
   document.getElementById('product-description').textContent=data.description;
   document.getElementById('product-video-src').src=data.video;
   document.getElementById('product-video').load();
+
   const pricesContainer=document.getElementById('product-prices');
   pricesContainer.innerHTML='';
   data.prices.forEach((p,i)=>{
     const div=document.createElement('div');
     div.className='price-option';
-    div.innerHTML=`${p.qty} : ${p.price}`;
+    div.textContent=`${p.qty} : ${p.price}`;
     if(i===0) div.classList.add('selected');
     div.addEventListener('click',()=>{
       document.querySelectorAll('.price-option').forEach(c=>c.classList.remove('selected'));
@@ -95,22 +93,31 @@ document.getElementById('order-btn').addEventListener('click',()=>{
 
 // Catégories
 const categoryMapping={
-  festifs:['cali_weed_us','cocaine','zkittles'],
-  weed:['cali_weed_us','produit_d'],
-  hash:['produit_d']
+  festifs:['cali_weed_us','cocaine'],
+  hash:['produit_d'],
+  weed:['cali_weed_us','produit_d']
 };
 
 document.querySelectorAll('.category-card').forEach(card=>{
   card.addEventListener('click',()=>{
-    document.querySelectorAll('.page').forEach(p=>p.style.display='none');
-    const listContainer=document.getElementById('category-products-list');
-    listContainer.style.display='block';
-    document.getElementById('category-title').textContent=card.textContent;
-    showProductList(listContainer.querySelector('.product-list'), categoryMapping[card.dataset.category]);
+    const productsContainer = card.querySelector('.category-products');
+    if(productsContainer.style.display==='flex'){
+      productsContainer.style.display='none';
+    } else {
+      // Fermer les autres cartes
+      document.querySelectorAll('.category-products').forEach(c=>c.style.display='none');
+      // Ajouter produits
+      productsContainer.innerHTML='';
+      categoryMapping[card.dataset.category].forEach(k=>{
+        const div=document.createElement('div');
+        div.className='product';
+        div.dataset.product=k;
+        div.textContent=productsData[k].title;
+        productsContainer.appendChild(div);
+      });
+      productsContainer.style.display='flex';
+      productsContainer.style.flexDirection='column';
+      productsContainer.style.gap='5px';
+    }
   });
-});
-
-document.getElementById('back-to-categories').addEventListener('click',()=>{
-  document.getElementById('category-products-list').style.display='none';
-  document.getElementById('page-categories').style.display='block';
 });
