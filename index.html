@@ -34,31 +34,22 @@
         </div>
       </div>
 
-      <!-- Cartes interactives -->
       <section class="cards">
         <div class="card" data-key="livraison">
           <div class="card-header"><h3>LIVRAISON</h3><p class="chevron">▾</p></div>
-          <div class="card-details">
-            <p>Livraison rapide disponible sur Paris et toute l’Île-de-France.</p>
-          </div>
+          <div class="card-details"><p>Livraison rapide disponible sur Paris et toute l’Île-de-France.</p></div>
         </div>
         <div class="card" data-key="meetup">
           <div class="card-header"><h3>MEET-UP</h3><p class="chevron">▾</p></div>
-          <div class="card-details">
-            <p>Retrait local possible dans différents points de rencontre.</p>
-          </div>
+          <div class="card-details"><p>Retrait local possible dans différents points de rencontre.</p></div>
         </div>
         <div class="card" data-key="horaires">
           <div class="card-header"><h3>HORAIRES</h3><p class="chevron">▾</p></div>
-          <div class="card-details">
-            <p>Ouvert tous les jours de 10h à 22h.</p>
-          </div>
+          <div class="card-details"><p>Ouvert tous les jours de 10h à 22h.</p></div>
         </div>
         <div class="card" data-key="minimum">
           <div class="card-header"><h3>MINIMUM DE COMMANDE</h3><p class="chevron">▾</p></div>
-          <div class="card-details">
-            <p>Le minimum de commande est de 50€.</p>
-          </div>
+          <div class="card-details"><p>Le minimum de commande est de 50€.</p></div>
         </div>
       </section>
     </section>
@@ -69,7 +60,7 @@
       <div class="product-list">
         <div class="product" data-product="cali_weed_us">Cali Weed US 🇺🇸</div>
         <div class="product" data-product="cocaine">Cocaine ❄️</div>
-        <div class="product" data-product="produit_c">Produit C</div>
+        <div class="product" data-product="zkittles">Zkittles 🍒</div>
         <div class="product" data-product="produit_d">Produit D</div>
       </div>
     </section>
@@ -77,29 +68,24 @@
     <!-- Page produit détaillée -->
     <section class="page" id="page-produit-detail" style="display:none">
       <button id="back-to-produits">⬅ Retour</button>
-      <!-- Section Vidéo/Image -->
       <div id="product-media">
         <video id="product-video" width="100%" controls>
           <source id="product-video-src" src="" type="video/mp4">
           Votre navigateur ne supporte pas la vidéo.
         </video>
       </div>
-      <!-- Nom du produit -->
       <div class="product-section" id="product-name">
         <h2 id="product-title"></h2>
         <h3 id="product-subtitle"></h3>
       </div>
-      <!-- Description -->
       <div class="product-section" id="product-description-container">
         <h3>📝 Description</h3>
         <p id="product-description"></p>
       </div>
-      <!-- Prix et quantités -->
       <div class="product-section" id="product-prices-container">
         <h3>💰 Prix et quantités</h3>
         <div id="product-prices"></div>
       </div>
-      <!-- Commander -->
       <div class="product-section" id="product-order">
         <button id="order-btn">📞 Commander</button>
       </div>
@@ -108,28 +94,43 @@
     <!-- Catégories -->
     <section class="page" id="page-categories" style="display:none">
       <h2>Catégories</h2>
-
       <div class="category">
         <h3 class="category-header">Produits festifs ▾</h3>
         <div class="category-products">
-          <div class="product" data-product="cali_weed_us">Cali Weed US 🇺🇸</div>
-          <div class="product" data-product="cocaine">Cocaine ❄️</div>
+          <div class="category-product">
+            <img src="assets/cali_weed_us.jpg" alt="">
+            <span>Cali Weed US 🇺🇸</span>
+          </div>
+          <div class="category-product">
+            <img src="assets/cocaine.jpg" alt="">
+            <span>Cocaine ❄️</span>
+          </div>
         </div>
       </div>
-
       <div class="category">
         <h3 class="category-header">Menu Weed ▾</h3>
         <div class="category-products">
-          <div class="product" data-product="produit_d">Produit D</div>
-          <div class="product" data-product="produit_e">Produit E</div>
+          <div class="category-product">
+            <img src="assets/produit_d.jpg" alt="">
+            <span>Produit D</span>
+          </div>
+          <div class="category-product">
+            <img src="assets/produit_e.jpg" alt="">
+            <span>Produit E</span>
+          </div>
         </div>
       </div>
-
       <div class="category">
         <h3 class="category-header">Produit Hash ▾</h3>
         <div class="category-products">
-          <div class="product" data-product="produit_f">Produit F</div>
-          <div class="product" data-product="produit_g">Produit G</div>
+          <div class="category-product">
+            <img src="assets/produit_f.jpg" alt="">
+            <span>Produit F</span>
+          </div>
+          <div class="category-product">
+            <img src="assets/produit_g.jpg" alt="">
+            <span>Produit G</span>
+          </div>
         </div>
       </div>
     </section>
@@ -142,7 +143,6 @@
 
   </main>
 </div>
-
 <script src="app.js"></script>
 </body>
 </html>
