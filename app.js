@@ -24,11 +24,11 @@ document.querySelectorAll('.card').forEach(card=>{
 });
 
 // --- Données produits ---
-const productsData = {
-  cali_weed_us: {title:"CALI WEED 🇺🇸", subtitle:"Zkittles 🍒", description:"Sativa Californienne, très puissante.", video:"assets/cali_weed_us.mp4", prices:[{qty:"10g", price:"90€"},{qty:"20g", price:"180€"}]},
-  cocaine: {title:"COCAINE ❄️", subtitle:"", description:"Produit de haute pureté.", video:"assets/cocaine.mp4", prices:[{qty:"1g", price:"80€"},{qty:"5g", price:"350€"}]},
-  mmc_3: {title:"3MMC 🇳🇱", subtitle:"Cailloux 🧊", description:"Stimulant synthétique.", video:"assets/3mmc.mp4", prices:[{qty:"1g", price:"50€"},{qty:"5g", price:"200€"}]},
-  jaune_mousse: {title:"JAUNE MOUSSE 🧽", subtitle:"Flavors 🌸", description:"Hash parfumé.", video:"assets/jaune_mousse.mp4", prices:[{qty:"1g", price:"60€"},{qty:"5g", price:"250€"}]}
+const productsData={
+  cali_weed_us:{title:"CALI WEED 🇺🇸", subtitle:"Zkittles 🍒", description:"Sativa Californienne, très puissante.", video:"assets/cali_weed_us.mp4", prices:[{qty:"10g", price:"90€"},{qty:"20g", price:"180€"}]},
+  cocaine:{title:"COCAINE ❄️", subtitle:"", description:"Produit de haute pureté.", video:"assets/cocaine.mp4", prices:[{qty:"1g", price:"80€"},{qty:"5g", price:"350€"}]},
+  cocagne:{title:"COCAGNE 🍾", subtitle:"", description:"Produit festif haut de gamme.", video:"assets/cocagne.mp4", prices:[{qty:"5g", price:"50€"}]},
+  mmc:{title:"3MMC 🇳🇱", subtitle:"", description:"Molécule stimulante.", video:"assets/3mmc.mp4", prices:[{qty:"1g", price:"60€"}]}
 };
 
 // --- Produits page ---
@@ -54,21 +54,21 @@ showProductList(document.querySelector('#page-produits .product-list'), Object.k
 
 // --- Ouvrir produit détail ---
 function openProductDetail(key){
-  const data = productsData[key];
+  const data=productsData[key];
   document.querySelectorAll('.page').forEach(p=>p.style.display='none');
   document.getElementById('page-produit-detail').style.display='block';
-  document.getElementById('product-title').textContent = data.title;
-  document.getElementById('product-subtitle').textContent = data.subtitle||'';
-  document.getElementById('product-description').textContent = data.description;
-  document.getElementById('product-video-src').src = data.video;
+  document.getElementById('product-title').textContent=data.title;
+  document.getElementById('product-subtitle').textContent=data.subtitle||'';
+  document.getElementById('product-description').textContent=data.description;
+  document.getElementById('product-video-src').src=data.video;
   document.getElementById('product-video').load();
 
-  const pricesContainer = document.getElementById('product-prices');
+  const pricesContainer=document.getElementById('product-prices');
   pricesContainer.innerHTML='';
   data.prices.forEach((p,i)=>{
     const div=document.createElement('div');
     div.className='price-option';
-    div.textContent = `${p.qty} : ${p.price}`;
+    div.textContent=`${p.qty} : ${p.price}`;
     if(i===0) div.classList.add('selected');
     div.addEventListener('click',()=>{
       document.querySelectorAll('.price-option').forEach(c=>c.classList.remove('selected'));
@@ -93,9 +93,9 @@ document.getElementById('back-to-produits').addEventListener('click',()=>{
 
 // --- Commander ---
 document.getElementById('order-btn').addEventListener('click',()=>{
-  const selected = document.querySelector('.price-option.selected');
-  const qty = selected ? selected.textContent : '';
-  const productName = document.getElementById('product-title').textContent;
+  const selected=document.querySelector('.price-option.selected');
+  const qty=selected?selected.textContent:'';
+  const productName=document.getElementById('product-title').textContent;
   tg.sendData(JSON.stringify({product:productName, quantity:qty}));
   alert(`Commande envoyée : ${productName} - ${qty}`);
 });
