@@ -1,0 +1,11 @@
+
+// Initialise Telegram WebApp
+const tg = window.Telegram.WebApp;
+tg.expand(); // utilise toute la hauteur
+
+// Exemple d'action sur clic
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    tg.sendData(btn.textContent); // envoie au bot le nom du bouton
+  });
+});
