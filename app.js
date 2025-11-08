@@ -1,123 +1,126 @@
-const tg = window.Telegram.WebApp;
-tg.expand();
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THEGD33 - MiniApp</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
 
-// --- Navigation ---
-document.querySelectorAll('.nav-item').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.page').forEach(p=>p.style.display='none');
-    let pageId='';
-    switch(btn.textContent.trim()){
-      case '🏠 Accueil': pageId='page-accueil'; break;
-      case '🛍️ Produits': pageId='page-produits'; break;
-      case '📱 Catégories': pageId='page-categories'; break;
-      case '✉️ Contact': pageId='page-contact'; break;
-    }
-    if(pageId) document.getElementById(pageId).style.display='block';
-  });
-});
+  <!-- Header -->
+  <header class="topbar">
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="THEGD33 Logo" class="logo">
+    </div>
+    <nav class="nav">
+      <button class="nav-item active">🏠 Accueil</button>
+      <button class="nav-item">📱 Catégories</button>
+      <button class="nav-item">🛍️ Produits</button>
+      <button class="nav-item">✉️ Contact</button>
+    </nav>
+  </header>
 
-// --- Accueil cartes ---
-document.querySelectorAll('.card').forEach(card=>{
-  card.addEventListener('click',()=>card.classList.toggle('expanded'));
-});
+  <main class="content">
 
-// --- Données produits ---
-const productsData={
-  cali_weed_us:{title:"CALI WEED 🇺🇸", subtitle:"Zkittles 🍒", description:"Sativa Californienne, très puissante.", video:"assets/cali_weed_us.mp4", prices:[{qty:"10g", price:"90€"},{qty:"20g", price:"180€"}]},
-  cocaine:{title:"COCAINE ❄️", subtitle:"", description:"Produit de haute pureté.", video:"assets/cocaine.mp4", prices:[{qty:"1g", price:"80€"},{qty:"5g", price:"350€"}]},
-  mmc3:{title:"3MMC 🇳🇱", subtitle:"Cailloux 🧊", description:"Produit stimulant.", video:"assets/3mmc.mp4", prices:[{qty:"1g", price:"50€"},{qty:"5g", price:"200€"}]},
-  jaune_mousse:{title:"JAUNE MOUSSE 🧽", subtitle:"Flavors 🌸", description:"Produit relaxant.", video:"assets/jaune_mousse.mp4", prices:[{qty:"5g", price:"60€"},{qty:"10g", price:"110€"}]}
-};
-
-// --- Catégories ---
-const categoryProducts={
-  festifs: ['cocaine','mmc3'],
-  hash: ['jaune_mousse'],
-  weed: ['cali_weed_us']
-};
-
-// --- Afficher liste produits ---
-function showProductList(container, keys){
-  container.innerHTML='';
-  keys.forEach(k=>{
-    const prod = productsData[k];
-    const div=document.createElement('div');
-    div.className='product';
-    div.dataset.product=k;
-    div.innerHTML=`
-      <div class="product-top"><img src="assets/${k}.jpg" alt="${prod.title}"></div>
-      <div class="product-bottom">
-        <h2>${prod.title}</h2>
-        <h3>${prod.subtitle}</h3>
-        <div class="voir-btn">VOIR</div>
+    <!-- Accueil -->
+    <section class="page" id="page-accueil">
+      <div class="cards">
+        <div class="card" data-key="livraison">
+          <div class="card-header"><h3>LIVRAISON</h3><span class="arrow">▸</span></div>
+          <div class="card-details"><p>Livraison rapide sur Paris et Île-de-France.</p></div>
+        </div>
+        <div class="card" data-key="meetup">
+          <div class="card-header"><h3>MEET-UP</h3><span class="arrow">▸</span></div>
+          <div class="card-details"><p>Retrait local possible dans différents points de rencontre.</p></div>
+        </div>
+        <div class="card" data-key="horaires">
+          <div class="card-header"><h3>HORAIRES</h3><span class="arrow">▸</span></div>
+          <div class="card-details"><p>Ouvert tous les jours de 10h à 22h.</p></div>
+        </div>
+        <div class="card" data-key="minimum">
+          <div class="card-header"><h3>MINIMUM DE COMMANDE</h3><span class="arrow">▸</span></div>
+          <div class="card-details"><p>Le minimum de commande est de 50€.</p></div>
+        </div>
       </div>
-    `;
-    container.appendChild(div);
-  });
-}
+    </section>
 
-// --- Page produits (tous) ---
-showProductList(document.querySelector('#page-produits .product-list'), Object.keys(productsData));
+    <!-- Catégories -->
+    <section class="page" id="page-categories" style="display:none">
+      <div class="categories-container">
+        <div class="category-card" data-category="festifs">
+          <div class="category-image"><img src="assets/festifs.jpg" alt="Menu Festif"></div>
+          <div class="category-text">
+            <h3>Menu Festif 🥳</h3>
+            <button class="see-products">Voir les produits ></button>
+          </div>
+        </div>
+        <div class="category-card" data-category="hash">
+          <div class="category-image"><img src="assets/hash.jpg" alt="Menu Hash"></div>
+          <div class="category-text">
+            <h3>Menu Hash 🍫</h3>
+            <button class="see-products">Voir les produits ></button>
+          </div>
+        </div>
+        <div class="category-card" data-category="weed">
+          <div class="category-image"><img src="assets/weed.jpg" alt="Menu Weed"></div>
+          <div class="category-text">
+            <h3>Menu Weed 🌿</h3>
+            <button class="see-products">Voir les produits ></button>
+          </div>
+        </div>
+      </div>
+    </section>
 
-// --- Ouvrir produit détail ---
-function openProductDetail(key){
-  const data=productsData[key];
-  document.querySelectorAll('.page').forEach(p=>p.style.display='none');
-  document.getElementById('page-produit-detail').style.display='block';
-  document.getElementById('product-title').textContent=data.title;
-  document.getElementById('product-subtitle').textContent=data.subtitle||'';
-  document.getElementById('product-description').textContent=data.description;
-  document.getElementById('product-video-src').src=data.video;
-  document.getElementById('product-video').load();
+    <!-- Produits -->
+    <section class="page" id="page-produits" style="display:none">
+      <div class="product-list"></div>
+    </section>
 
-  const pricesContainer=document.getElementById('product-prices');
-  pricesContainer.innerHTML='';
-  data.prices.forEach((p,i)=>{
-    const div=document.createElement('div');
-    div.className='price-option';
-    div.textContent=`${p.qty} : ${p.price}`;
-    if(i===0) div.classList.add('selected');
-    div.addEventListener('click',()=>{
-      document.querySelectorAll('.price-option').forEach(c=>c.classList.remove('selected'));
-      div.classList.add('selected');
-    });
-    pricesContainer.appendChild(div);
-  });
-}
+    <!-- Produits catégorie filtrés -->
+    <section class="page" id="page-produits-categorie" style="display:none">
+      <button id="back-to-categories">⬅ Retour</button>
+      <div class="product-list"></div>
+    </section>
 
-// --- Cliquer sur VOIR ---
-document.addEventListener('click', e=>{
-  if(e.target.classList.contains('voir-btn')){
-    openProductDetail(e.target.closest('.product').dataset.product);
-  }
-});
+    <!-- Page produit détaillée -->
+    <section class="page" id="page-produit-detail" style="display:none">
+      <button id="back-to-produits">⬅ Retour</button>
+      <div id="product-media">
+        <video id="product-video" width="100%" controls>
+          <source id="product-video-src" src="" type="video/mp4">
+        </video>
+      </div>
+      <div class="product-section" id="product-name">
+        <h2 id="product-title"></h2>
+        <h3 id="product-subtitle"></h3>
+      </div>
+      <div class="product-section" id="product-description-container">
+        <h3>📝 Description</h3>
+        <p id="product-description"></p>
+      </div>
+      <div class="product-section" id="product-prices-container">
+        <h3>💰 Prix et quantités</h3>
+        <div id="product-prices" class="price-grid"></div>
+      </div>
+      <div class="product-section" id="product-order">
+        <button id="order-btn">📞 Commander</button>
+      </div>
+    </section>
 
-// --- Retour page produits ---
-document.getElementById('back-to-produits').addEventListener('click',()=>{
-  document.getElementById('page-produit-detail').style.display='none';
-  document.getElementById('page-produits').style.display='block';
-});
+    <!-- Contact -->
+    <section class="page" id="page-contact" style="display:none">
+      <div class="contact-buttons">
+        <button class="contact-whatsapp">WhatsApp</button>
+        <button class="contact-telegram">Telegram</button>
+      </div>
+    </section>
 
-// --- Commander ---
-document.getElementById('order-btn').addEventListener('click',()=>{
-  const selected=document.querySelector('.price-option.selected');
-  const qty=selected?selected.textContent:'';
-  const productName=document.getElementById('product-title').textContent;
-  tg.sendData(JSON.stringify({product:productName, quantity:qty}));
-  alert(`Commande envoyée : ${productName} - ${qty}`);
-});
+  </main>
+</div>
 
-// --- Voir produits catégorie ---
-document.querySelectorAll('.voir-category-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const category = btn.closest('.category-card').dataset.category;
-    const keys = categoryProducts[category] || [];
-    showProductList(document.querySelector('#page-produits .product-list'), keys);
-    document.querySelectorAll('.page').forEach(p=>p.style.display='none');
-    document.getElementById('page-produits').style.display='block';
-    document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
-    document.querySelector('.nav-item:nth-child(3)').classList.add('active'); // Produits onglet actif
-  });
-});
+<script src="app.js"></script>
+</body>
+</html>
