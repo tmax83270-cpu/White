@@ -1,32 +1,96 @@
-body {
-  background: #000;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 50px 20px;
-}
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>THEGD33 - MiniApp</title>
 
-h1 {
-  margin-bottom: 10px;
-  font-size: 28px;
-}
+  <!-- Telegram WebApp SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-p {
-  margin-bottom: 30px;
-  color: #ccc;
-}
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <nav class="nav">
+        <button class="nav-item active">🏠 Accueil</button>
+        <button class="nav-item">🛍️ Produits</button>
+        <button class="nav-item">📱 Catégories</button>
+        <button class="nav-item">✉️ Contact</button>
+      </nav>
+    </header>
 
-.menu {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+    <main class="content">
+      <!-- Section Hero -->
+      <section class="hero">
+        <div class="hero-bubble">
+          <h1 class="title">THEGD33</h1>
+          <p class="subtitle">Bienvenue sur notre boutique</p>
+        </div>
+      </section>
 
-.btn {
-  background: #111;
-  color: #fff;
-  border: 1px solid #333;
-  padding: 15px;
-  border-radius: 10px;
-  font-size: 18px;
-}
+      <!-- Section Cartes -->
+      <section class="cards">
+        <div class="card" data-key="livraison">
+          <img class="card-icon" src="assets/logo-small.png" alt="Logo" />
+          <div class="card-text">
+            <h3>LIVRAISON</h3>
+            <p class="chevron">▾</p>
+          </div>
+          <div class="card-details">
+            <p>Options de livraison, frais et délais.</p>
+            <button class="action" data-send='{"action":"livraison"}'>Choisir livraison</button>
+          </div>
+        </div>
+
+        <div class="card" data-key="meetup">
+          <img class="card-icon" src="assets/logo-small.png" alt="Logo" />
+          <div class="card-text">
+            <h3>MEET-UP</h3>
+            <p class="chevron">▾</p>
+          </div>
+          <div class="card-details">
+            <p>Retrait local, points de rencontre.</p>
+            <button class="action" data-send='{"action":"meetup"}'>Choisir meet-up</button>
+          </div>
+        </div>
+
+        <div class="card" data-key="horaires">
+          <img class="card-icon" src="assets/logo-small.png" alt="Logo" />
+          <div class="card-text">
+            <h3>HORAIRES</h3>
+            <p class="chevron">▾</p>
+          </div>
+          <div class="card-details">
+            <p>Nos horaires d'ouverture.</p>
+            <button class="action" data-send='{"action":"horaires"}'>Voir horaires</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Produits -->
+      <section class="products">
+        <h2>Nos produits</h2>
+        <div class="product-list">
+          <div class="product" data-send='{"product":"Produit A"}'>
+            <p>Produit A</p>
+            <button class="buy-btn">Choisir</button>
+          </div>
+          <div class="product" data-send='{"product":"Produit B"}'>
+            <p>Produit B</p>
+            <button class="buy-btn">Choisir</button>
+          </div>
+          <div class="product" data-send='{"product":"Produit C"}'>
+            <p>Produit C</p>
+            <button class="buy-btn">Choisir</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
