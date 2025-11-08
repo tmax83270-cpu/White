@@ -33,19 +33,31 @@
       </div>
       <section class="cards">
         <div class="card" data-key="livraison">
-          <div class="card-header"><h3>LIVRAISON</h3></div>
+          <div class="card-header">
+            <h3>LIVRAISON</h3>
+            <span class="arrow">▸</span>
+          </div>
           <div class="card-details"><p>Livraison rapide sur Paris et Île-de-France.</p></div>
         </div>
         <div class="card" data-key="meetup">
-          <div class="card-header"><h3>MEET-UP</h3></div>
+          <div class="card-header">
+            <h3>MEET-UP</h3>
+            <span class="arrow">▸</span>
+          </div>
           <div class="card-details"><p>Retrait local possible dans différents points de rencontre.</p></div>
         </div>
         <div class="card" data-key="horaires">
-          <div class="card-header"><h3>HORAIRES</h3></div>
+          <div class="card-header">
+            <h3>HORAIRES</h3>
+            <span class="arrow">▸</span>
+          </div>
           <div class="card-details"><p>Ouvert tous les jours de 10h à 22h.</p></div>
         </div>
         <div class="card" data-key="minimum">
-          <div class="card-header"><h3>MINIMUM DE COMMANDE</h3></div>
+          <div class="card-header">
+            <h3>MINIMUM DE COMMANDE</h3>
+            <span class="arrow">▸</span>
+          </div>
           <div class="card-details"><p>Le minimum de commande est de 50€.</p></div>
         </div>
       </section>
@@ -59,24 +71,21 @@
           <div class="category-image"><img src="assets/festifs.jpg" alt="Menu Festif"></div>
           <div class="category-text">
             <h3>Menu Festif 🥳</h3>
-            <p class="see-products">Voir les produits &gt;</p>
-            <div class="category-products" style="display:none;"></div>
+            <div class="see-products btn-white">Voir les produits &gt;</div>
           </div>
         </div>
         <div class="category-card" data-category="hash">
           <div class="category-image"><img src="assets/hash.jpg" alt="Menu Hash"></div>
           <div class="category-text">
             <h3>Menu Hash 🍫</h3>
-            <p class="see-products">Voir les produits &gt;</p>
-            <div class="category-products" style="display:none;"></div>
+            <div class="see-products btn-white">Voir les produits &gt;</div>
           </div>
         </div>
         <div class="category-card" data-category="weed">
           <div class="category-image"><img src="assets/weed.jpg" alt="Menu Weed"></div>
           <div class="category-text">
             <h3>Menu Weed 🌿</h3>
-            <p class="see-products">Voir les produits &gt;</p>
-            <div class="category-products" style="display:none;"></div>
+            <div class="see-products btn-white">Voir les produits &gt;</div>
           </div>
         </div>
       </div>
@@ -116,7 +125,10 @@
     <!-- Contact -->
     <section class="page" id="page-contact" style="display:none">
       <h2>Contact</h2>
-      <p>Envoyez-nous un message via Telegram.</p>
+      <div class="contact-buttons">
+        <div class="contact-btn whatsapp">WhatsApp</div>
+        <div class="contact-btn telegram">Telegram</div>
+      </div>
     </section>
 
   </main>
