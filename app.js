@@ -1,8 +1,7 @@
-// Initialise Telegram WebApp
 const tg = window.Telegram.WebApp;
 tg.expand();
 
-// --- Navigation Onglets ---
+// --- Navigation onglets ---
 document.querySelectorAll('.nav-item').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
@@ -10,70 +9,67 @@ document.querySelectorAll('.nav-item').forEach(btn => {
     document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
 
     let pageId = '';
-    switch(btn.textContent.trim()) {
+    switch (btn.textContent.trim()) {
       case '🏠 Accueil': pageId = 'page-accueil'; break;
-      case '📱 Catégories': pageId = 'page-categories'; break;
       case '🛍️ Produits': pageId = 'page-produits'; break;
+      case '📱 Catégories': pageId = 'page-categories'; break;
       case '✉️ Contact': pageId = 'page-contact'; break;
     }
-    if(pageId) document.getElementById(pageId).style.display = 'block';
-  });
-});
 
-// --- Cartes Accueil ---
-document.querySelectorAll('.card').forEach(card => {
-  const arrow = document.createElement('span');
-  arrow.textContent = '▾';
-  arrow.style.float = 'right';
-  arrow.style.transition = 'transform 0.3s';
-  card.querySelector('.card-header').appendChild(arrow);
-
-  card.addEventListener('click', () => {
-    card.classList.toggle('expanded');
-    const details = card.querySelector('.card-details');
-    if(card.classList.contains('expanded')) {
-      details.style.display = 'block';
-      arrow.style.transform = 'rotate(180deg)';
-    } else {
-      details.style.display = 'none';
-      arrow.style.transform = 'rotate(0deg)';
+    if (pageId) {
+      document.getElementById(pageId).style.display = 'block';
+      if(pageId === 'page-produits') showProductList(document.querySelector('#page-produits .product-list'), Object.keys(productsData));
     }
   });
 });
 
-// --- Données Produits ---
+// --- Accueil cartes ---
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('click', () => {
+    card.classList.toggle('expanded');
+  });
+});
+
+// --- Données produits ---
 const productsData = {
   cali_weed_us: {
-    title: "CALI WEED 🇺🇸", 
-    subtitle: "Zkittles 🍒", 
-    description: "Sativa Californienne, très puissante.", 
-    video: "assets/cali_weed_us.mp4", 
-    prices: [{qty:"10g", price:"90€"},{qty:"20g", price:"180€"}]
+    title: "CALI WEED 🇺🇸",
+    subtitle: "Zkittles 🍒",
+    description: "Sativa Californienne, très puissante.",
+    video: "assets/cali_weed_us.mp4",
+    prices: [{ qty: "10g", price: "90€" }, { qty: "20g", price: "180€" }]
   },
   cocaine: {
-    title: "COCAINE ❄️", 
-    subtitle: "", 
-    description: "Produit de haute pureté.", 
-    video: "assets/cocaine.mp4", 
-    prices: [{qty:"1g", price:"80€"},{qty:"5g", price:"350€"}]
+    title: "COCAINE ❄️",
+    subtitle: "",
+    description: "Produit de haute pureté.",
+    video: "assets/cocaine.mp4",
+    prices: [{ qty: "1g", price: "80€" }, { qty: "5g", price: "350€" }]
+  },
+  trois_mmc: {
+    title: "3MMC 🇳🇱",
+    subtitle: "Cailloux 🧊",
+    description: "Produit stimulant, effet intense.",
+    video: "assets/3mmc.mp4",
+    prices: [{ qty: "1g", price: "70€" }, { qty: "5g", price: "300€" }]
   },
   filtre_73u: {
-    title: "FILTRÉ 73U", 
-    subtitle: "No Farm ⚡️", 
-    description: "Hash de qualité supérieure.", 
-    video: "assets/filtre_73u.mp4", 
-    prices: [{qty:"5g", price:"70€"},{qty:"10g", price:"130€"}]
+    title: "FILTRÉ 73U ⚡️",
+    subtitle: "NO FARM",
+    description: "Hash de haute qualité, bien filtré.",
+    video: "assets/filtre_73u.mp4",
+    prices: [{ qty: "5g", price: "120€" }, { qty: "10g", price: "230€" }]
   },
   jaune_mousse: {
-    title: "JAUNE MOUSSE 🧽", 
-    subtitle: "Flavors 🌸", 
-    description: "Hash aromatique et puissant.", 
-    video: "assets/jaune_mousse.mp4", 
-    prices: [{qty:"5g", price:"75€"},{qty:"10g", price:"140€"}]
+    title: "JAUNE MOUSSE 🧽",
+    subtitle: "Flavors 🌸",
+    description: "Hash aromatique, texture unique.",
+    video: "assets/jaune_mousse.mp4",
+    prices: [{ qty: "5g", price: "110€" }, { qty: "10g", price: "210€" }]
   }
 };
 
-// --- Fonction pour afficher liste produits ---
+// --- Produits page ---
 function showProductList(container, keys) {
   container.innerHTML = '';
   keys.forEach(k => {
@@ -93,15 +89,28 @@ function showProductList(container, keys) {
   });
 }
 
-// --- Affiche tous les produits dans onglet Produits ---
-showProductList(document.querySelector('#page-produits .product-list'), Object.keys(productsData));
+// --- Catégories ---
+const categoriesData = {
+  festifs: ['cocaine', 'trois_mmc'],
+  weed: ['cali_weed_us'],
+  hash: ['filtre_73u', 'jaune_mousse']
+};
+
+document.querySelectorAll('.category-card').forEach(card => {
+  const category = card.dataset.category;
+  const seeBtn = card.querySelector('.see-products');
+  seeBtn.addEventListener('click', () => {
+    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+    document.getElementById('page-produits').style.display = 'block';
+    showProductList(document.querySelector('#page-produits .product-list'), categoriesData[category]);
+  });
+});
 
 // --- Ouvrir produit détail ---
-function openProductDetail(key){
+function openProductDetail(key) {
   const data = productsData[key];
   document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
   document.getElementById('page-produit-detail').style.display = 'block';
-
   document.getElementById('product-title').textContent = data.title;
   document.getElementById('product-subtitle').textContent = data.subtitle || '';
   document.getElementById('product-description').textContent = data.description;
@@ -114,7 +123,7 @@ function openProductDetail(key){
     const div = document.createElement('div');
     div.className = 'price-option';
     div.textContent = `${p.qty} : ${p.price}`;
-    if(i === 0) div.classList.add('selected');
+    if (i === 0) div.classList.add('selected');
     div.addEventListener('click', () => {
       document.querySelectorAll('.price-option').forEach(c => c.classList.remove('selected'));
       div.classList.add('selected');
@@ -123,11 +132,10 @@ function openProductDetail(key){
   });
 }
 
-// --- Cliquer sur VOIR produit ---
+// --- Cliquer sur VOIR ---
 document.addEventListener('click', e => {
-  if(e.target.classList.contains('voir-btn')){
-    const prodKey = e.target.closest('.product').dataset.product;
-    openProductDetail(prodKey);
+  if (e.target.classList.contains('voir-btn')) {
+    openProductDetail(e.target.closest('.product').dataset.product);
   }
 });
 
@@ -142,27 +150,6 @@ document.getElementById('order-btn').addEventListener('click', () => {
   const selected = document.querySelector('.price-option.selected');
   const qty = selected ? selected.textContent : '';
   const productName = document.getElementById('product-title').textContent;
-  tg.sendData(JSON.stringify({product: productName, quantity: qty}));
+  tg.sendData(JSON.stringify({ product: productName, quantity: qty }));
   alert(`Commande envoyée : ${productName} - ${qty}`);
-});
-
-// --- Catégories ---
-const categories = {
-  festifs: ['cocaine', '3mmc'],
-  weed: ['cali_weed_us'],
-  hash: ['filtre_73u','jaune_mousse']
-};
-
-document.querySelectorAll('.see-products').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    const catCard = e.target.closest('.category-card');
-    const catKey = catCard.dataset.category;
-    const container = catCard.querySelector('.category-products');
-    container.style.display = 'block';
-    container.innerHTML = '';
-    showProductList(container, categories[catKey]);
-    // Masque les autres pages
-    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-    document.getElementById('page-categories').style.display = 'block';
-  });
 });
