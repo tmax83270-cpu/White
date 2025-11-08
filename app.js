@@ -1,79 +1,13 @@
-// --- Initialise Telegram WebApp ---
 const tg = window.Telegram.WebApp;
 tg.expand();
 
-// --- Données produits ---
-const productsData = {
-  // Menu Weed
-  cali_weed_us: {
-    title: "CALI WEED 🇺🇸",
-    subtitle: "Zkittles 🍒",
-    description: "Sativa Californienne, très puissante.",
-    video: "assets/cali_weed_us.mp4",
-    prices: [
-      { qty: "10g", price: "90€" },
-      { qty: "20g", price: "180€" }
-    ]
-  },
-
-  // Menu Festif
-  cocaine: {
-    title: "COCAINE ❄️",
-    subtitle: "",
-    description: "Produit de haute pureté.",
-    video: "assets/cocaine.mp4",
-    prices: [
-      { qty: "1g", price: "80€" },
-      { qty: "5g", price: "350€" }
-    ]
-  },
-  "3mmc": {
-    title: "3MMC 🇳🇱",
-    subtitle: "Cailloux 🧊",
-    description: "Produit stimulant, attention à la dose.",
-    video: "assets/3mmc.mp4",
-    prices: [
-      { qty: "1g", price: "50€" },
-      { qty: "5g", price: "200€" }
-    ]
-  },
-
-  // Menu Hash
-  "jaune_mousse": {
-    title: "JAUNE MOUSSE 🧽",
-    subtitle: "Flavors 🌸",
-    description: "Hash aromatique et puissant.",
-    video: "assets/jaune_mousse.mp4",
-    prices: [
-      { qty: "5g", price: "60€" },
-      { qty: "10g", price: "110€" }
-    ]
-  },
-  "filtre_73u": {
-    title: "FILTRÉ 73U",
-    subtitle: "NO FARM ⚡️",
-    description: "Hash de qualité, texture fine.",
-    video: "assets/filtre_73u.mp4",
-    prices: [
-      { qty: "5g", price: "70€" },
-      { qty: "10g", price: "130€" }
-    ]
-  }
-};
-
-// --- Menu catégories ---
-const categoriesData = {
-  festifs: ["cocaine", "3mmc"],
-  weed: ["cali_weed_us"],
-  hash: ["filtre_73u", "jaune_mousse"]
-};
-
-// --- Navigation principale ---
+// --- Navigation onglets ---
 document.querySelectorAll('.nav-item').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+
     let pageId = '';
     switch (btn.textContent.trim()) {
       case '🏠 Accueil': pageId = 'page-accueil'; break;
@@ -81,8 +15,11 @@ document.querySelectorAll('.nav-item').forEach(btn => {
       case '📱 Catégories': pageId = 'page-categories'; break;
       case '✉️ Contact': pageId = 'page-contact'; break;
     }
-    if (pageId) document.getElementById(pageId).style.display = 'block';
-    if (pageId === 'page-produits') showProductList(document.querySelector('#page-produits .product-list'), Object.keys(productsData));
+
+    if (pageId) {
+      document.getElementById(pageId).style.display = 'block';
+      if(pageId === 'page-produits') showProductList(document.querySelector('#page-produits .product-list'), Object.keys(productsData));
+    }
   });
 });
 
@@ -93,7 +30,46 @@ document.querySelectorAll('.card').forEach(card => {
   });
 });
 
-// --- Afficher produits ---
+// --- Données produits ---
+const productsData = {
+  cali_weed_us: {
+    title: "CALI WEED 🇺🇸",
+    subtitle: "Zkittles 🍒",
+    description: "Sativa Californienne, très puissante.",
+    video: "assets/cali_weed_us.mp4",
+    prices: [{ qty: "10g", price: "90€" }, { qty: "20g", price: "180€" }]
+  },
+  cocaine: {
+    title: "COCAINE ❄️",
+    subtitle: "",
+    description: "Produit de haute pureté.",
+    video: "assets/cocaine.mp4",
+    prices: [{ qty: "1g", price: "80€" }, { qty: "5g", price: "350€" }]
+  },
+  trois_mmc: {
+    title: "3MMC 🇳🇱",
+    subtitle: "Cailloux 🧊",
+    description: "Produit stimulant, effet intense.",
+    video: "assets/3mmc.mp4",
+    prices: [{ qty: "1g", price: "70€" }, { qty: "5g", price: "300€" }]
+  },
+  filtre_73u: {
+    title: "FILTRÉ 73U ⚡️",
+    subtitle: "NO FARM",
+    description: "Hash de haute qualité, bien filtré.",
+    video: "assets/filtre_73u.mp4",
+    prices: [{ qty: "5g", price: "120€" }, { qty: "10g", price: "230€" }]
+  },
+  jaune_mousse: {
+    title: "JAUNE MOUSSE 🧽",
+    subtitle: "Flavors 🌸",
+    description: "Hash aromatique, texture unique.",
+    video: "assets/jaune_mousse.mp4",
+    prices: [{ qty: "5g", price: "110€" }, { qty: "10g", price: "210€" }]
+  }
+};
+
+// --- Produits page ---
 function showProductList(container, keys) {
   container.innerHTML = '';
   keys.forEach(k => {
@@ -113,7 +89,24 @@ function showProductList(container, keys) {
   });
 }
 
-// --- Ouvrir page produit détail ---
+// --- Catégories ---
+const categoriesData = {
+  festifs: ['cocaine', 'trois_mmc'],
+  weed: ['cali_weed_us'],
+  hash: ['filtre_73u', 'jaune_mousse']
+};
+
+document.querySelectorAll('.category-card').forEach(card => {
+  const category = card.dataset.category;
+  const seeBtn = card.querySelector('.see-products');
+  seeBtn.addEventListener('click', () => {
+    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+    document.getElementById('page-produits').style.display = 'block';
+    showProductList(document.querySelector('#page-produits .product-list'), categoriesData[category]);
+  });
+});
+
+// --- Ouvrir produit détail ---
 function openProductDetail(key) {
   const data = productsData[key];
   document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
@@ -139,18 +132,10 @@ function openProductDetail(key) {
   });
 }
 
-// --- Cliquer sur VOIR produit ---
+// --- Cliquer sur VOIR ---
 document.addEventListener('click', e => {
   if (e.target.classList.contains('voir-btn')) {
-    const productKey = e.target.closest('.product').dataset.product;
-    openProductDetail(productKey);
-  } else if (e.target.classList.contains('see-products')) {
-    const categoryCard = e.target.closest('.category-card');
-    const categoryKey = categoryCard.dataset.category;
-    const keys = categoriesData[categoryKey] || [];
-    showProductList(document.querySelector('#page-produits .product-list'), keys);
-    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-    document.getElementById('page-produits').style.display = 'block';
+    openProductDetail(e.target.closest('.product').dataset.product);
   }
 });
 
