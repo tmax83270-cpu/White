@@ -20,3 +20,26 @@ document.querySelectorAll('.buy-btn').forEach(btn => {
     tg.sendData(productData);
   });
 });
+
+// Navigation interne
+document.querySelectorAll('.nav-item').forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Supprimer la classe active sur tous les boutons
+    document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Masquer toutes les pages
+    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+
+    // Afficher la page correspondante
+    let pageId = '';
+    switch(btn.textContent.trim()) {
+      case '🏠 Accueil': pageId = 'page-accueil'; break;
+      case '🛍️ Produits': pageId = 'page-produits'; break;
+      case '📱 Catégories': pageId = 'page-categories'; break;
+      case '✉️ Contact': pageId = 'page-contact'; break;
+    }
+
+    if(pageId) document.getElementById(pageId).style.display = 'block';
+  });
+});
