@@ -1,11 +1,13 @@
-// Initialise Telegram WebApp
-const tg = window.Telegram.WebApp;
-tg.expand();
-
-// Sélectionne tous les boutons d'action
-document.querySelectorAll('.action').forEach(btn => {
+// Gestion des clics sur les produits
+document.querySelectorAll('.buy-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    const data = btn.dataset.send; // récupère le JSON
-    tg.sendData(data); // envoie au bot Telegram
+    const productData = btn.closest('.product').dataset.send;
+    console.log('Produit choisi :', productData);
+
+    // Affiche un message ou détail côté front-end
+    alert(`Vous avez choisi : ${JSON.parse(productData).product}`);
+
+    // Envoie au bot Telegram
+    tg.sendData(productData);
   });
 });
