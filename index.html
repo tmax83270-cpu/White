@@ -18,8 +18,8 @@
     </div>
     <nav class="nav">
       <button class="nav-item active">🏠 Accueil</button>
-      <button class="nav-item">🛍️ Produits</button>
       <button class="nav-item">📱 Catégories</button>
+      <button class="nav-item">🛍️ Produits</button>
       <button class="nav-item">✉️ Contact</button>
     </nav>
   </header>
@@ -88,15 +88,30 @@
     <section class="page" id="page-categories" style="display:none">
       <h2>Catégories</h2>
       <div class="categories-container">
-        <div class="category-card" data-category="festifs">Menu Festifs</div>
-        <div class="category-card" data-category="weed">Menu Weed</div>
-        <div class="category-card" data-category="hash">Menu Hash</div>
-      </div>
-
-      <div class="category-products-list" id="category-products-list" style="display:none">
-        <h3 id="category-title"></h3>
-        <div class="product-list"></div>
-        <button id="back-to-categories">⬅ Retour aux catégories</button>
+        <div class="category-card" data-category="festifs">
+          <div class="category-image"><img src="assets/festifs.jpg" alt=""></div>
+          <div class="category-text">
+            <h3>Menu Festif 🥳</h3>
+            <p class="see-products">Voir les produits &gt;</p>
+            <div class="category-products" style="display:none"></div>
+          </div>
+        </div>
+        <div class="category-card" data-category="hash">
+          <div class="category-image"><img src="assets/hash.jpg" alt=""></div>
+          <div class="category-text">
+            <h3>Menu Hash 🍫</h3>
+            <p class="see-products">Voir les produits &gt;</p>
+            <div class="category-products" style="display:none"></div>
+          </div>
+        </div>
+        <div class="category-card" data-category="weed">
+          <div class="category-image"><img src="assets/weed.jpg" alt=""></div>
+          <div class="category-text">
+            <h3>Menu Weed 🌿</h3>
+            <p class="see-products">Voir les produits &gt;</p>
+            <div class="category-products" style="display:none"></div>
+          </div>
+        </div>
       </div>
     </section>
 
