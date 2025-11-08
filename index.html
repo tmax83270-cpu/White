@@ -4,167 +4,145 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>THEGD33 - MiniApp</title>
-
-  <!-- Telegram WebApp SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="app">
-    <!-- Header avec logo et menu -->
-    <header class="topbar">
-      <div class="logo-container">
-        <img src="assets/logo.png" alt="THEGD33 Logo" class="logo">
+<div id="app">
+
+  <!-- Header -->
+  <header class="topbar">
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="THEGD33 Logo" class="logo">
+    </div>
+    <nav class="nav">
+      <button class="nav-item active">🏠 Accueil</button>
+      <button class="nav-item">🛍️ Produits</button>
+      <button class="nav-item">📱 Catégories</button>
+      <button class="nav-item">✉️ Contact</button>
+    </nav>
+  </header>
+
+  <main class="content">
+
+    <!-- Accueil -->
+    <section class="page" id="page-accueil">
+      <div class="hero">
+        <div class="hero-bubble">
+          <h1 class="title">Bienvenue sur notre boutique</h1>
+          <p class="subtitle">Découvrez nos produits et services</p>
+        </div>
       </div>
-      <nav class="nav">
-        <button class="nav-item active">🏠 Accueil</button>
-        <button class="nav-item">🛍️ Produits</button>
-        <button class="nav-item">📱 Catégories</button>
-        <button class="nav-item">✉️ Contact</button>
-      </nav>
-    </header>
 
-    <main class="content">
-
-      <!-- Accueil -->
-      <section class="page" id="page-accueil">
-        <div class="hero">
-          <div class="hero-bubble">
-            <h1 class="title">Bienvenue sur notre boutique</h1>
-            <p class="subtitle">Découvrez nos produits et services</p>
+      <!-- Cartes interactives -->
+      <section class="cards">
+        <div class="card" data-key="livraison">
+          <div class="card-header"><h3>LIVRAISON</h3><p class="chevron">▾</p></div>
+          <div class="card-details">
+            <p>Livraison rapide disponible sur Paris et toute l’Île-de-France.</p>
           </div>
         </div>
-
-        <!-- Cartes interactives -->
-        <section class="cards">
-          <div class="card" data-key="livraison">
-            <div class="card-header">
-              <h3>LIVRAISON</h3>
-              <p class="chevron">▾</p>
-            </div>
-            <div class="card-details">
-              <p>Livraison rapide disponible sur Paris et toute l’Île-de-France.</p>
-            </div>
+        <div class="card" data-key="meetup">
+          <div class="card-header"><h3>MEET-UP</h3><p class="chevron">▾</p></div>
+          <div class="card-details">
+            <p>Retrait local possible dans différents points de rencontre.</p>
           </div>
-
-          <div class="card" data-key="meetup">
-            <div class="card-header">
-              <h3>MEET-UP</h3>
-              <p class="chevron">▾</p>
-            </div>
-            <div class="card-details">
-              <p>Retrait local possible dans différents points de rencontre.</p>
-            </div>
+        </div>
+        <div class="card" data-key="horaires">
+          <div class="card-header"><h3>HORAIRES</h3><p class="chevron">▾</p></div>
+          <div class="card-details">
+            <p>Ouvert tous les jours de 10h à 22h.</p>
           </div>
-
-          <div class="card" data-key="horaires">
-            <div class="card-header">
-              <h3>HORAIRES</h3>
-              <p class="chevron">▾</p>
-            </div>
-            <div class="card-details">
-              <p>Ouvert tous les jours de 10h à 22h.</p>
-            </div>
-          </div>
-
-          <div class="card" data-key="minimum">
-            <div class="card-header">
-              <h3>MINIMUM DE COMMANDE</h3>
-              <p class="chevron">▾</p>
-            </div>
-            <div class="card-details">
-              <p>Le minimum de commande est de 50€.</p>
-            </div>
-          </div>
-        </section>
-      </section>
-
-      <!-- Produits -->
-      <section class="page" id="page-produits" style="display:none">
-        <h2>Nos produits</h2>
-        <div class="product-list">
-          <div class="product" data-product="cali_weed_us">
-            <p>Cali Weed US 🇺🇸</p>
-          </div>
-          <div class="product" data-product="cocaine">
-            <p>Cocaine ❄️</p>
-          </div>
-          <div class="product" data-product="produit_c">
-            <p>Produit C</p>
-          </div>
-          <div class="product" data-product="produit_d">
-            <p>Produit D</p>
+        </div>
+        <div class="card" data-key="minimum">
+          <div class="card-header"><h3>MINIMUM DE COMMANDE</h3><p class="chevron">▾</p></div>
+          <div class="card-details">
+            <p>Le minimum de commande est de 50€.</p>
           </div>
         </div>
       </section>
+    </section>
 
-      <!-- Page produit détaillée -->
-      <section class="page" id="page-produit-detail" style="display:none">
-        <button id="back-to-produits">⬅ Retour</button>
-        <h2 id="product-title"></h2>
-        <p id="product-description"></p>
-        <p id="product-price"></p>
+    <!-- Produits -->
+    <section class="page" id="page-produits" style="display:none">
+      <h2>Nos produits</h2>
+      <div class="product-list">
+        <div class="product" data-product="cali_weed_us">Cali Weed US 🇺🇸</div>
+        <div class="product" data-product="cocaine">Cocaine ❄️</div>
+        <div class="product" data-product="produit_c">Produit C</div>
+        <div class="product" data-product="produit_d">Produit D</div>
+      </div>
+    </section>
+
+    <!-- Page produit détaillée -->
+    <section class="page" id="page-produit-detail" style="display:none">
+      <button id="back-to-produits">⬅ Retour</button>
+      <!-- Section Vidéo/Image -->
+      <div id="product-media">
         <video id="product-video" width="100%" controls>
           <source id="product-video-src" src="" type="video/mp4">
           Votre navigateur ne supporte pas la vidéo.
         </video>
-        <button id="order-btn">COMMANDER</button>
-      </section>
+      </div>
+      <!-- Nom du produit -->
+      <div class="product-section" id="product-name">
+        <h2 id="product-title"></h2>
+        <h3 id="product-subtitle"></h3>
+      </div>
+      <!-- Description -->
+      <div class="product-section" id="product-description-container">
+        <h3>📝 Description</h3>
+        <p id="product-description"></p>
+      </div>
+      <!-- Prix et quantités -->
+      <div class="product-section" id="product-prices-container">
+        <h3>💰 Prix et quantités</h3>
+        <div id="product-prices"></div>
+      </div>
+      <!-- Commander -->
+      <div class="product-section" id="product-order">
+        <button id="order-btn">📞 Commander</button>
+      </div>
+    </section>
 
-      <!-- Catégories -->
-      <section class="page" id="page-categories" style="display:none">
-        <h2>Catégories</h2>
+    <!-- Catégories -->
+    <section class="page" id="page-categories" style="display:none">
+      <h2>Catégories</h2>
 
-        <div class="category">
-          <h3 class="category-header">Produits festifs ▾</h3>
-          <div class="category-products">
-            <div class="product" data-product="cali_weed_us">
-              <p>Cali Weed US 🇺🇸</p>
-            </div>
-            <div class="product" data-product="cocaine">
-              <p>Cocaine ❄️</p>
-            </div>
-            <div class="product" data-product="produit_c">
-              <p>Produit C</p>
-            </div>
-          </div>
+      <div class="category">
+        <h3 class="category-header">Produits festifs ▾</h3>
+        <div class="category-products">
+          <div class="product" data-product="cali_weed_us">Cali Weed US 🇺🇸</div>
+          <div class="product" data-product="cocaine">Cocaine ❄️</div>
         </div>
+      </div>
 
-        <div class="category">
-          <h3 class="category-header">Menu Weed ▾</h3>
-          <div class="category-products">
-            <div class="product" data-product="produit_d">
-              <p>Produit D</p>
-            </div>
-            <div class="product" data-product="produit_e">
-              <p>Produit E</p>
-            </div>
-          </div>
+      <div class="category">
+        <h3 class="category-header">Menu Weed ▾</h3>
+        <div class="category-products">
+          <div class="product" data-product="produit_d">Produit D</div>
+          <div class="product" data-product="produit_e">Produit E</div>
         </div>
+      </div>
 
-        <div class="category">
-          <h3 class="category-header">Produit Hash ▾</h3>
-          <div class="category-products">
-            <div class="product" data-product="produit_f">
-              <p>Produit F</p>
-            </div>
-            <div class="product" data-product="produit_g">
-              <p>Produit G</p>
-            </div>
-          </div>
+      <div class="category">
+        <h3 class="category-header">Produit Hash ▾</h3>
+        <div class="category-products">
+          <div class="product" data-product="produit_f">Produit F</div>
+          <div class="product" data-product="produit_g">Produit G</div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Contact -->
-      <section class="page" id="page-contact" style="display:none">
-        <h2>Contact</h2>
-        <p>Envoyez-nous un message via Telegram.</p>
-      </section>
+    <!-- Contact -->
+    <section class="page" id="page-contact" style="display:none">
+      <h2>Contact</h2>
+      <p>Envoyez-nous un message via Telegram.</p>
+    </section>
 
-    </main>
-  </div>
+  </main>
+</div>
 
-  <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
