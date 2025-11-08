@@ -1,96 +1,123 @@
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>THEGD33 - MiniApp</title>
+body {
+  background: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 50px 20px;
+  margin: 0;
+}
 
-  <!-- Telegram WebApp SDK -->
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+h1, h2 {
+  margin-bottom: 10px;
+}
 
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div id="app">
-    <header class="topbar">
-      <nav class="nav">
-        <button class="nav-item active">🏠 Accueil</button>
-        <button class="nav-item">🛍️ Produits</button>
-        <button class="nav-item">📱 Catégories</button>
-        <button class="nav-item">✉️ Contact</button>
-      </nav>
-    </header>
+p {
+  margin-bottom: 15px;
+  color: #ccc;
+}
 
-    <main class="content">
-      <!-- Section Hero -->
-      <section class="hero">
-        <div class="hero-bubble">
-          <h1 class="title">THEGD33</h1>
-          <p class="subtitle">Bienvenue sur notre boutique</p>
-        </div>
-      </section>
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
 
-      <!-- Section Cartes -->
-      <section class="cards">
-        <div class="card" data-key="livraison">
-          <img class="card-icon" src="assets/logo-small.png" alt="Logo" />
-          <div class="card-text">
-            <h3>LIVRAISON</h3>
-            <p class="chevron">▾</p>
-          </div>
-          <div class="card-details">
-            <p>Options de livraison, frais et délais.</p>
-            <button class="action" data-send='{"action":"livraison"}'>Choisir livraison</button>
-          </div>
-        </div>
+.nav-item {
+  background: #111;
+  color: #fff;
+  border: 1px solid #333;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
-        <div class="card" data-key="meetup">
-          <img class="card-icon" src="assets/logo-small.png" alt="Logo" />
-          <div class="card-text">
-            <h3>MEET-UP</h3>
-            <p class="chevron">▾</p>
-          </div>
-          <div class="card-details">
-            <p>Retrait local, points de rencontre.</p>
-            <button class="action" data-send='{"action":"meetup"}'>Choisir meet-up</button>
-          </div>
-        </div>
+.nav-item.active {
+  background: #222;
+  border-color: #555;
+}
 
-        <div class="card" data-key="horaires">
-          <img class="card-icon" src="assets/logo-small.png" alt="Logo" />
-          <div class="card-text">
-            <h3>HORAIRES</h3>
-            <p class="chevron">▾</p>
-          </div>
-          <div class="card-details">
-            <p>Nos horaires d'ouverture.</p>
-            <button class="action" data-send='{"action":"horaires"}'>Voir horaires</button>
-          </div>
-        </div>
-      </section>
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 40px;
+}
 
-      <!-- Section Produits -->
-      <section class="products">
-        <h2>Nos produits</h2>
-        <div class="product-list">
-          <div class="product" data-send='{"product":"Produit A"}'>
-            <p>Produit A</p>
-            <button class="buy-btn">Choisir</button>
-          </div>
-          <div class="product" data-send='{"product":"Produit B"}'>
-            <p>Produit B</p>
-            <button class="buy-btn">Choisir</button>
-          </div>
-          <div class="product" data-send='{"product":"Produit C"}'>
-            <p>Produit C</p>
-            <button class="buy-btn">Choisir</button>
-          </div>
-        </div>
-      </section>
+.card {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 15px;
+  padding: 20px;
+  width: 100%;
+  max-width: 350px;
+  text-align: left;
+}
 
-    </main>
-  </div>
+.card-icon {
+  width: 50px;
+  height: 50px;
+}
 
-  <script src="app.js"></script>
-</body>
-</html>
+.card-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.card-details {
+  margin-top: 10px;
+}
+
+.action {
+  background: #111;
+  color: #fff;
+  border: 1px solid #333;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.action:hover {
+  background: #222;
+}
+
+/* Produits */
+.products {
+  margin-top: 40px;
+}
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.product {
+  background: #111;
+  border: 1px solid #333;
+  padding: 15px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buy-btn {
+  background: #222;
+  color: #fff;
+  border: 1px solid #555;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.buy-btn:hover {
+  background: #333;
+}
