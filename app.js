@@ -33,40 +33,20 @@
       </div>
       <section class="cards">
         <div class="card" data-key="livraison">
-          <div class="card-header">
-            <h3>LIVRAISON</h3> <span class="arrow">▼</span>
-          </div>
-          <div class="card-details">
-            <p>Envoyez-nous : nom + commande + adresse exacte, un temps de livraison vous sera communiqué dans les minutes suivant votre message.</p>
-          </div>
+          <div class="card-header"><h3>LIVRAISON</h3></div>
+          <div class="card-details"><p>Livraison rapide sur Paris et Île-de-France.</p></div>
         </div>
         <div class="card" data-key="meetup">
-          <div class="card-header">
-            <h3>MEET UP</h3> <span class="arrow">▼</span>
-          </div>
-          <div class="card-details">
-            <p>Une adresse discrète en Seine-Saint-Denis (93) vous sera communiquée avec drive disponible comme au McDonald’s.</p>
-          </div>
+          <div class="card-header"><h3>MEET-UP</h3></div>
+          <div class="card-details"><p>Retrait local possible dans différents points de rencontre.</p></div>
         </div>
         <div class="card" data-key="horaires">
-          <div class="card-header">
-            <h3>HORAIRES</h3> <span class="arrow">▼</span>
-          </div>
-          <div class="card-details">
-            <p>Livraisons: 14h00 - 02h00<br>
-               Meet Up : 13h00 - 03h00<br>
-               Prises de commandes: 10h00 - 06h00</p>
-          </div>
+          <div class="card-header"><h3>HORAIRES</h3></div>
+          <div class="card-details"><p>Ouvert tous les jours de 10h à 22h.</p></div>
         </div>
         <div class="card" data-key="minimum">
-          <div class="card-header">
-            <h3>MINIMUM DE COMMANDE</h3> <span class="arrow">▼</span>
-          </div>
-          <div class="card-details">
-            <p>75/92/93/94/95 : Minimum 50€<br>
-               77/78/91 : Minimum 100€<br>
-               Hors IDF : Minimum 150€</p>
-          </div>
+          <div class="card-header"><h3>MINIMUM DE COMMANDE</h3></div>
+          <div class="card-details"><p>Le minimum de commande est de 50€.</p></div>
         </div>
       </section>
     </section>
@@ -136,10 +116,7 @@
     <!-- Contact -->
     <section class="page" id="page-contact" style="display:none">
       <h2>Contact</h2>
-      <div class="contact-buttons">
-        <button class="contact-btn whatsapp">WhatsApp</button>
-        <button class="contact-btn telegram">Telegram</button>
-      </div>
+      <p>Envoyez-nous un message via Telegram.</p>
     </section>
 
   </main>
