@@ -12,6 +12,7 @@
 </head>
 <body>
   <div id="app">
+    <!-- Menu -->
     <header class="topbar">
       <nav class="nav">
         <button class="nav-item active">🏠 Accueil</button>
@@ -22,55 +23,56 @@
     </header>
 
     <main class="content">
-      <!-- Section Hero -->
-      <section class="hero">
-        <div class="hero-bubble">
-          <h1 class="title">THEGD33</h1>
-          <p class="subtitle">Bienvenue sur notre boutique</p>
+      <!-- Accueil -->
+      <section class="page" id="page-accueil">
+        <div class="hero">
+          <div class="hero-bubble">
+            <h1 class="title">THEGD33</h1>
+            <p class="subtitle">Bienvenue sur notre boutique</p>
+          </div>
         </div>
+
+        <section class="cards">
+          <div class="card" data-key="livraison">
+            <img class="card-icon" src="assets/logo-small.png" alt="Logo" />
+            <div class="card-text">
+              <h3>LIVRAISON</h3>
+              <p class="chevron">▾</p>
+            </div>
+            <div class="card-details">
+              <p>Options de livraison, frais et délais.</p>
+              <button class="action" data-send='{"action":"livraison"}'>Choisir livraison</button>
+            </div>
+          </div>
+
+          <div class="card" data-key="meetup">
+            <img class="card-icon" src="assets/logo-small.png" alt="Logo" />
+            <div class="card-text">
+              <h3>MEET-UP</h3>
+              <p class="chevron">▾</p>
+            </div>
+            <div class="card-details">
+              <p>Retrait local, points de rencontre.</p>
+              <button class="action" data-send='{"action":"meetup"}'>Choisir meet-up</button>
+            </div>
+          </div>
+
+          <div class="card" data-key="horaires">
+            <img class="card-icon" src="assets/logo-small.png" alt="Logo" />
+            <div class="card-text">
+              <h3>HORAIRES</h3>
+              <p class="chevron">▾</p>
+            </div>
+            <div class="card-details">
+              <p>Nos horaires d'ouverture.</p>
+              <button class="action" data-send='{"action":"horaires"}'>Voir horaires</button>
+            </div>
+          </div>
+        </section>
       </section>
 
-      <!-- Section Cartes -->
-      <section class="cards">
-        <div class="card" data-key="livraison">
-          <img class="card-icon" src="assets/logo-small.png" alt="Logo" />
-          <div class="card-text">
-            <h3>LIVRAISON</h3>
-            <p class="chevron">▾</p>
-          </div>
-          <div class="card-details">
-            <p>Options de livraison, frais et délais.</p>
-            <button class="action" data-send='{"action":"livraison"}'>Choisir livraison</button>
-          </div>
-        </div>
-
-        <div class="card" data-key="meetup">
-          <img class="card-icon" src="assets/logo-small.png" alt="Logo" />
-          <div class="card-text">
-            <h3>MEET-UP</h3>
-            <p class="chevron">▾</p>
-          </div>
-          <div class="card-details">
-            <p>Retrait local, points de rencontre.</p>
-            <button class="action" data-send='{"action":"meetup"}'>Choisir meet-up</button>
-          </div>
-        </div>
-
-        <div class="card" data-key="horaires">
-          <img class="card-icon" src="assets/logo-small.png" alt="Logo" />
-          <div class="card-text">
-            <h3>HORAIRES</h3>
-            <p class="chevron">▾</p>
-          </div>
-          <div class="card-details">
-            <p>Nos horaires d'ouverture.</p>
-            <button class="action" data-send='{"action":"horaires"}'>Voir horaires</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section Produits -->
-      <section class="products">
+      <!-- Produits -->
+      <section class="page" id="page-produits" style="display:none">
         <h2>Nos produits</h2>
         <div class="product-list">
           <div class="product" data-send='{"product":"Produit A"}'>
@@ -88,6 +90,17 @@
         </div>
       </section>
 
+      <!-- Catégories -->
+      <section class="page" id="page-categories" style="display:none">
+        <h2>Nos catégories</h2>
+        <p>Ici tu peux mettre les catégories de produits.</p>
+      </section>
+
+      <!-- Contact -->
+      <section class="page" id="page-contact" style="display:none">
+        <h2>Contact</h2>
+        <p>Envoyez-nous un message via Telegram.</p>
+      </section>
     </main>
   </div>
 
