@@ -1,3 +1,4 @@
+// Initialise Telegram WebApp
 const tg = window.Telegram.WebApp;
 tg.expand();
 
@@ -24,12 +25,38 @@ document.querySelectorAll('.card').forEach(card=>{
 });
 
 // --- Données produits ---
-const productsData={
-  cali_weed_us:{title:"CALI WEED 🇺🇸", subtitle:"Zkittles 🍒", description:"Sativa Californienne, très puissante.", video:"assets/cali_weed_us.mp4", prices:[{qty:"10g", price:"90€"},{qty:"20g", price:"180€"}]},
-  cocaine:{title:"COCAINE ❄️", subtitle:"", description:"Produit de haute pureté.", video:"assets/cocaine.mp4", prices:[{qty:"1g", price:"80€"},{qty:"5g", price:"350€"}]}
+const productsData = {
+  cali_weed_us: {
+    title:"CALI WEED 🇺🇸",
+    subtitle:"Zkittles 🍒",
+    description:"Sativa Californienne, très puissante.",
+    video:"assets/cali_weed_us.mp4",
+    prices:[{qty:"10g", price:"90€"},{qty:"20g", price:"180€"}]
+  },
+  cocaine: {
+    title:"COCAINE ❄️",
+    subtitle:"",
+    description:"Produit de haute pureté.",
+    video:"assets/cocaine.mp4",
+    prices:[{qty:"1g", price:"80€"},{qty:"5g", price:"350€"}]
+  },
+  jaune_mousse: {
+    title:"JAUNE MOUSSE 🧽",
+    subtitle:"Flavors 🌸",
+    description:"Produit parfumé et doux.",
+    video:"assets/jaune_mousse.mp4",
+    prices:[{qty:"5g", price:"50€"},{qty:"10g", price:"90€"}]
+  },
+  filtre_73u: {
+    title:"FILTRÉ 73U",
+    subtitle:"NO FARM ⚡️",
+    description:"Produit filtré, haute qualité.",
+    video:"assets/filtre_73u.mp4",
+    prices:[{qty:"5g", price:"55€"},{qty:"10g", price:"100€"}]
+  }
 };
 
-// --- Produits page ---
+// --- Afficher les produits ---
 function showProductList(container, keys){
   container.innerHTML='';
   keys.forEach(k=>{
@@ -49,7 +76,24 @@ function showProductList(container, keys){
   });
 }
 
-// --- Ouvrir produit détail ---
+// --- Tous les produits par défaut ---
+showProductList(document.querySelector('#page-produits .product-list'), Object.keys(productsData));
+
+// --- Produits par catégorie ---
+const categoryProducts = {
+  festifs: ['cali_weed_us', 'cocaine'],
+  hash: ['jaune_mousse', 'filtre_73u'],
+  weed: ['cali_weed_us']
+};
+
+// --- Cliquer sur VOIR dans la liste des produits ---
+document.addEventListener('click', e=>{
+  if(e.target.classList.contains('voir-btn')){
+    openProductDetail(e.target.closest('.product').dataset.product);
+  }
+});
+
+// --- Ouvrir produit détaillé ---
 function openProductDetail(key){
   const data=productsData[key];
   document.querySelectorAll('.page').forEach(p=>p.style.display='none');
@@ -75,17 +119,11 @@ function openProductDetail(key){
   });
 }
 
-// --- Cliquer sur VOIR ---
-document.addEventListener('click', e=>{
-  if(e.target.classList.contains('voir-btn')){
-    openProductDetail(e.target.closest('.product').dataset.product);
-  }
-});
-
 // --- Retour page produits ---
 document.getElementById('back-to-produits').addEventListener('click',()=>{
   document.getElementById('page-produit-detail').style.display='none';
   document.getElementById('page-produits').style.display='block';
+  showProductList(document.querySelector('#page-produits .product-list'), Object.keys(productsData));
 });
 
 // --- Commander ---
@@ -97,24 +135,17 @@ document.getElementById('order-btn').addEventListener('click',()=>{
   alert(`Commande envoyée : ${productName} - ${qty}`);
 });
 
-// --- Produits par catégorie ---
-const categoryProducts = {
-    festifs: ['cali_weed_us', 'cocaine'],
-    hash: [],
-    weed: ['cali_weed_us']
-};
-
-// --- Cliquer sur "VOIR LES PRODUITS" dans catégorie ---
-document.querySelectorAll('.voir-category-btn').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-        const categoryCard = btn.closest('.category-card');
-        const cat = categoryCard.dataset.category;
-        const keys = categoryProducts[cat] || [];
-        document.querySelectorAll('.page').forEach(p=>p.style.display='none');
-        const produitsPage = document.getElementById('page-produits');
-        produitsPage.style.display='block';
-        showProductList(produitsPage.querySelector('.product-list'), keys);
-        document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
-        document.querySelector('.nav-item:nth-child(3)').classList.add('active');
-    });
+// --- Voir les produits depuis une catégorie ---
+document.querySelectorAll('.see-products').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const catCard = btn.closest('.category-card');
+    const cat = catCard.dataset.category;
+    const keys = categoryProducts[cat] || [];
+    document.querySelectorAll('.page').forEach(p=>p.style.display='none');
+    const produitsPage = document.getElementById('page-produits');
+    produitsPage.style.display='block';
+    showProductList(produitsPage.querySelector('.product-list'), keys);
+    document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
+    document.querySelector('.nav-item:nth-child(3)').classList.add('active'); // Produits actif
+  });
 });
