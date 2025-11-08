@@ -16,6 +16,7 @@ p {
   color: #ccc;
 }
 
+/* Menu */
 .nav {
   display: flex;
   justify-content: center;
@@ -37,6 +38,7 @@ p {
   border-color: #555;
 }
 
+/* Cartes */
 .cards {
   display: flex;
   flex-direction: column;
