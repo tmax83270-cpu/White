@@ -2,36 +2,13 @@
 const tg = window.Telegram.WebApp;
 tg.expand();
 
-// Gestion des clics sur les actions (Livraison / Meet-up / Horaires)
-document.querySelectorAll('.action').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const data = btn.dataset.send;
-    console.log('Action envoyée :', data);
-    tg.sendData(data);
-  });
-});
-
-// Gestion des clics sur les produits
-document.querySelectorAll('.buy-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const productData = btn.closest('.product').dataset.send;
-    console.log('Produit choisi :', productData);
-    alert(`Vous avez choisi : ${JSON.parse(productData).product}`);
-    tg.sendData(productData);
-  });
-});
-
 // Navigation interne
 document.querySelectorAll('.nav-item').forEach(btn => {
   btn.addEventListener('click', () => {
-    // Supprimer la classe active sur tous les boutons
     document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
-    // Masquer toutes les pages
     document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
 
-    // Afficher la page correspondante
     let pageId = '';
     switch(btn.textContent.trim()) {
       case '🏠 Accueil': pageId = 'page-accueil'; break;
@@ -39,7 +16,40 @@ document.querySelectorAll('.nav-item').forEach(btn => {
       case '📱 Catégories': pageId = 'page-categories'; break;
       case '✉️ Contact': pageId = 'page-contact'; break;
     }
-
     if(pageId) document.getElementById(pageId).style.display = 'block';
+  });
+});
+
+// Cartes interactives
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('click', () => {
+    card.classList.toggle('expanded');
+  });
+});
+
+// Boutons action des cartes
+document.querySelectorAll('.action').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.stopPropagation(); // éviter de trigger le toggle de la carte
+    const data = btn.dataset.send;
+    tg.sendData(data);
+  });
+});
+
+// Produits boutons
+document.querySelectorAll('.buy-btn').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const productData = btn.closest('.product').dataset.send;
+    alert(`Vous avez choisi : ${JSON.parse(productData).product}`);
+    tg.sendData(productData);
+  });
+});
+
+// Catégories toggle
+document.querySelectorAll('.category-header').forEach(header => {
+  header.addEventListener('click', () => {
+    const products = header.nextElementSibling;
+    products.style.display = products.style.display === 'flex' ? 'none' : 'flex';
   });
 });
