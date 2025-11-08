@@ -18,7 +18,10 @@ document.querySelectorAll('.nav-item').forEach(btn => {
 
     if (pageId) {
       document.getElementById(pageId).style.display = 'block';
-      if(pageId === 'page-produits') showProductList(document.querySelector('#page-produits .product-list'), Object.keys(productsData));
+      // Si on clique sur l'onglet PRODUITS, afficher tous les produits
+      if(pageId === 'page-produits') {
+        showProductList(document.querySelector('#page-produits .product-list'), Object.keys(productsData));
+      }
     }
   });
 });
@@ -27,6 +30,7 @@ document.querySelectorAll('.nav-item').forEach(btn => {
 document.querySelectorAll('.card').forEach(card => {
   card.addEventListener('click', () => {
     card.classList.toggle('expanded');
+    // Plus besoin de flèche ici
   });
 });
 
@@ -140,7 +144,19 @@ document.addEventListener('click', e => {
 });
 
 // --- Retour page produits ---
-document.getElementById('back-to-produits').addEventListener('click', () => {
+const backBtn = document.getElementById('back-to-produits');
+backBtn.textContent = '⬅ Retour';
+backBtn.style.display = 'block';
+backBtn.style.margin = '20px auto';
+backBtn.style.padding = '10px 20px';
+backBtn.style.background = '#fff';
+backBtn.style.color = '#000';
+backBtn.style.borderRadius = '10px';
+backBtn.style.border = '1px solid #555';
+backBtn.style.cursor = 'pointer';
+backBtn.style.fontSize = '1em';
+
+backBtn.addEventListener('click', () => {
   document.getElementById('page-produit-detail').style.display = 'none';
   document.getElementById('page-produits').style.display = 'block';
 });
