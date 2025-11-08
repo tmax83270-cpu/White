@@ -1,7 +1,7 @@
 const tg = window.Telegram.WebApp;
 tg.expand();
 
-// Navigation
+// --- Navigation ---
 document.querySelectorAll('.nav-item').forEach(btn=>{
   btn.addEventListener('click',()=>{
     document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
@@ -18,22 +18,22 @@ document.querySelectorAll('.nav-item').forEach(btn=>{
   });
 });
 
-// Accueil cartes
+// --- Accueil cartes ---
 document.querySelectorAll('.card').forEach(card=>{
   card.addEventListener('click',()=>card.classList.toggle('expanded'));
 });
 
-// Produits données
+// --- Données produits ---
 const productsData={
-  cali_weed_us:{title:"CALI WEED 🇺🇸",subtitle:"Zkittles 🍒",description:"Sativa Californienne, très puissante.",video:"assets/cali_weed_us.mp4",prices:[{qty:"10g",price:"90€"},{qty:"20g",price:"180€"}]},
-  cocaine:{title:"COCAINE ❄️",subtitle:"",description:"Produit de haute pureté.",video:"assets/cocaine.mp4",prices:[{qty:"1g",price:"80€"},{qty:"5g",price:"350€"}]}
+  cali_weed_us:{title:"CALI WEED 🇺🇸", subtitle:"Zkittles 🍒", description:"Sativa Californienne, très puissante.", video:"assets/cali_weed_us.mp4", prices:[{qty:"10g", price:"90€"},{qty:"20g", price:"180€"}]},
+  cocaine:{title:"COCAINE ❄️", subtitle:"", description:"Produit de haute pureté.", video:"assets/cocaine.mp4", prices:[{qty:"1g", price:"80€"},{qty:"5g", price:"350€"}]}
 };
 
-// Afficher liste produits
+// --- Produits page ---
 function showProductList(container, keys){
   container.innerHTML='';
   keys.forEach(k=>{
-    const prod=productsData[k];
+    const prod = productsData[k];
     const div=document.createElement('div');
     div.className='product';
     div.dataset.product=k;
@@ -43,13 +43,14 @@ function showProductList(container, keys){
         <h2>${prod.title}</h2>
         <h3>${prod.subtitle}</h3>
         <div class="voir-btn">VOIR</div>
-      </div>`;
+      </div>
+    `;
     container.appendChild(div);
   });
 }
-showProductList(document.querySelector('#page-produits .product-list'),Object.keys(productsData));
+showProductList(document.querySelector('#page-produits .product-list'), Object.keys(productsData));
 
-// Ouvrir produit détail
+// --- Ouvrir produit détail ---
 function openProductDetail(key){
   const data=productsData[key];
   document.querySelectorAll('.page').forEach(p=>p.style.display='none');
@@ -66,7 +67,7 @@ function openProductDetail(key){
     const div=document.createElement('div');
     div.className='price-option';
     div.textContent=`${p.qty} : ${p.price}`;
-    if(i===0)div.classList.add('selected');
+    if(i===0) div.classList.add('selected');
     div.addEventListener('click',()=>{
       document.querySelectorAll('.price-option').forEach(c=>c.classList.remove('selected'));
       div.classList.add('selected');
@@ -75,24 +76,24 @@ function openProductDetail(key){
   });
 }
 
-// Cliquer produit VOIR
-document.addEventListener('click',e=>{
+// --- Cliquer sur VOIR ---
+document.addEventListener('click', e=>{
   if(e.target.classList.contains('voir-btn')){
     openProductDetail(e.target.closest('.product').dataset.product);
   }
 });
 
-// Retour page produit
+// --- Retour page produits ---
 document.getElementById('back-to-produits').addEventListener('click',()=>{
   document.getElementById('page-produit-detail').style.display='none';
   document.getElementById('page-produits').style.display='block';
 });
 
-// Commander
+// --- Commander ---
 document.getElementById('order-btn').addEventListener('click',()=>{
   const selected=document.querySelector('.price-option.selected');
   const qty=selected?selected.textContent:'';
   const productName=document.getElementById('product-title').textContent;
-  tg.sendData(JSON.stringify({product:productName,quantity:qty}));
+  tg.sendData(JSON.stringify({product:productName, quantity:qty}));
   alert(`Commande envoyée : ${productName} - ${qty}`);
 });
