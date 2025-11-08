@@ -26,9 +26,7 @@ document.querySelectorAll('.card').forEach(card=>{
 // --- Données produits ---
 const productsData={
   cali_weed_us:{title:"CALI WEED 🇺🇸", subtitle:"Zkittles 🍒", description:"Sativa Californienne, très puissante.", video:"assets/cali_weed_us.mp4", prices:[{qty:"10g", price:"90€"},{qty:"20g", price:"180€"}]},
-  cocaine:{title:"COCAINE ❄️", subtitle:"", description:"Produit de haute pureté.", video:"assets/cocaine.mp4", prices:[{qty:"1g", price:"80€"},{qty:"5g", price:"350€"}]},
-  cocagne:{title:"COCAGNE 🍾", subtitle:"", description:"Produit festif haut de gamme.", video:"assets/cocagne.mp4", prices:[{qty:"5g", price:"50€"}]},
-  mmc:{title:"3MMC 🇳🇱", subtitle:"", description:"Molécule stimulante.", video:"assets/3mmc.mp4", prices:[{qty:"1g", price:"60€"}]}
+  cocaine:{title:"COCAINE ❄️", subtitle:"", description:"Produit de haute pureté.", video:"assets/cocaine.mp4", prices:[{qty:"1g", price:"80€"},{qty:"5g", price:"350€"}]}
 };
 
 // --- Produits page ---
@@ -50,7 +48,6 @@ function showProductList(container, keys){
     container.appendChild(div);
   });
 }
-showProductList(document.querySelector('#page-produits .product-list'), Object.keys(productsData));
 
 // --- Ouvrir produit détail ---
 function openProductDetail(key){
@@ -98,4 +95,26 @@ document.getElementById('order-btn').addEventListener('click',()=>{
   const productName=document.getElementById('product-title').textContent;
   tg.sendData(JSON.stringify({product:productName, quantity:qty}));
   alert(`Commande envoyée : ${productName} - ${qty}`);
+});
+
+// --- Produits par catégorie ---
+const categoryProducts = {
+    festifs: ['cali_weed_us', 'cocaine'],
+    hash: [],
+    weed: ['cali_weed_us']
+};
+
+// --- Cliquer sur "VOIR LES PRODUITS" dans catégorie ---
+document.querySelectorAll('.voir-category-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+        const categoryCard = btn.closest('.category-card');
+        const cat = categoryCard.dataset.category;
+        const keys = categoryProducts[cat] || [];
+        document.querySelectorAll('.page').forEach(p=>p.style.display='none');
+        const produitsPage = document.getElementById('page-produits');
+        produitsPage.style.display='block';
+        showProductList(produitsPage.querySelector('.product-list'), keys);
+        document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
+        document.querySelector('.nav-item:nth-child(3)').classList.add('active');
+    });
 });
