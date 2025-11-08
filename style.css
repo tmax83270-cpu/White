@@ -112,19 +112,11 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.buy-btn {
-  background: #222;
-  color: #fff;
-  border: 1px solid #555;
-  padding: 5px 10px;
-  border-radius: 8px;
   cursor: pointer;
 }
 
-.buy-btn:hover {
-  background: #333;
+.product:hover {
+  background: #222;
 }
 
 /* Catégories */
@@ -152,4 +144,27 @@ p {
 
 .category-header:hover {
   background: #222;
+}
+
+/* Page produit détail */
+#page-produit-detail {
+  text-align: center;
+}
+
+#back-to-produits {
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #222;
+  border: 1px solid #555;
+}
+
+#order-btn {
+  margin-top: 20px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #222;
+  border: 1px solid #555;
 }
