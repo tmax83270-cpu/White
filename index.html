@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>THEGD33 - MiniApp</title>
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THEGD33 - MiniApp</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="app">
@@ -16,10 +16,10 @@
       <img src="assets/logo.png" alt="THEGD33 Logo" class="logo">
     </div>
     <nav class="nav">
-      <button class="nav-item active">🏠 Accueil</button>
-      <button class="nav-item">📱 Catégories</button>
-      <button class="nav-item">🛍️ Produits</button>
-      <button class="nav-item">✉️ Contact</button>
+      <button class="nav-item active" data-page="page-accueil">🏠 Accueil</button>
+      <button class="nav-item" data-page="page-categories">📱 Catégories</button>
+      <button class="nav-item" data-page="page-produits">🛍️ Produits</button>
+      <button class="nav-item" data-page="page-contact">✉️ Contact</button>
     </nav>
   </header>
 
@@ -34,19 +34,30 @@
       <section class="cards">
         <div class="card" data-key="livraison">
           <div class="card-header"><h3>LIVRAISON</h3></div>
-          <div class="card-details"><p>Livraison rapide sur Paris et Île-de-France.</p></div>
+          <div class="card-details">
+            <p>Envoi nous : nom + commande + adresse exacte, un temps de livraison vous sera communiqué dans les minutes suivant votre message.</p>
+          </div>
         </div>
+
         <div class="card" data-key="meetup">
-          <div class="card-header"><h3>MEET-UP</h3></div>
-          <div class="card-details"><p>Retrait local possible dans différents points de rencontre.</p></div>
+          <div class="card-header"><h3>MEET UP</h3></div>
+          <div class="card-details">
+            <p>Une adresse discrète en Seine-Saint-Denis (93) vous sera communiquée avec drive disponible comme au McDonald’s.</p>
+          </div>
         </div>
+
         <div class="card" data-key="horaires">
           <div class="card-header"><h3>HORAIRES</h3></div>
-          <div class="card-details"><p>Ouvert tous les jours de 10h à 22h.</p></div>
+          <div class="card-details">
+            <p>Livraisons : 14h00 - 02h00<br>Meet Up : 13h00 - 03h00<br>Prises de commandes : 10h00 - 06h00</p>
+          </div>
         </div>
+
         <div class="card" data-key="minimum">
           <div class="card-header"><h3>MINIMUM DE COMMANDE</h3></div>
-          <div class="card-details"><p>Le minimum de commande est de 50€.</p></div>
+          <div class="card-details">
+            <p>75/92/93/94/95 : Minimum 50€<br>77/78/91 : Minimum 100€<br>Hors IDF : Minimum 150€</p>
+          </div>
         </div>
       </section>
     </section>
@@ -59,24 +70,21 @@
           <div class="category-image"><img src="assets/festifs.jpg" alt="Menu Festif"></div>
           <div class="category-text">
             <h3>Menu Festif 🥳</h3>
-            <p class="see-products">Voir les produits &gt;</p>
-            <div class="category-products" style="display:none;"></div>
+            <div class="btn-white see-products">Voir les produits &gt;</div>
           </div>
         </div>
         <div class="category-card" data-category="hash">
           <div class="category-image"><img src="assets/hash.jpg" alt="Menu Hash"></div>
           <div class="category-text">
             <h3>Menu Hash 🍫</h3>
-            <p class="see-products">Voir les produits &gt;</p>
-            <div class="category-products" style="display:none;"></div>
+            <div class="btn-white see-products">Voir les produits &gt;</div>
           </div>
         </div>
         <div class="category-card" data-category="weed">
           <div class="category-image"><img src="assets/weed.jpg" alt="Menu Weed"></div>
           <div class="category-text">
             <h3>Menu Weed 🌿</h3>
-            <p class="see-products">Voir les produits &gt;</p>
-            <div class="category-products" style="display:none;"></div>
+            <div class="btn-white see-products">Voir les produits &gt;</div>
           </div>
         </div>
       </div>
@@ -90,7 +98,9 @@
 
     <!-- Page produit détaillée -->
     <section class="page" id="page-produit-detail" style="display:none">
-      <button id="back-to-produits">⬅ Retour</button>
+      <div class="product-section">
+        <button id="back-to-produits" class="btn-white">⬅ Retour</button>
+      </div>
       <div id="product-media">
         <video id="product-video" width="100%" controls>
           <source id="product-video-src" src="" type="video/mp4">
@@ -116,7 +126,10 @@
     <!-- Contact -->
     <section class="page" id="page-contact" style="display:none">
       <h2>Contact</h2>
-      <p>Envoyez-nous un message via Telegram.</p>
+      <div class="contact-buttons">
+        <div class="contact-btn whatsapp">WhatsApp</div>
+        <div class="contact-btn telegram">Telegram</div>
+      </div>
     </section>
 
   </main>
