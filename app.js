@@ -156,4 +156,3 @@ document.getElementById('order-btn').addEventListener('click', () => {
 
 
 
-On repart de ce code 
