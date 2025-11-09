@@ -8,17 +8,11 @@ document.querySelectorAll('.nav-item').forEach(btn => {
     btn.classList.add('active');
     document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
 
-    let pageId = '';
-    switch (btn.textContent.trim()) {
-      case '🏠 Accueil': pageId = 'page-accueil'; break;
-      case '🛍️ Produits': pageId = 'page-produits'; break;
-      case '📱 Catégories': pageId = 'page-categories'; break;
-      case '✉️ Contact': pageId = 'page-contact'; break;
-    }
+    const pageId = btn.dataset.page;
+    document.getElementById(pageId).style.display = 'block';
 
-    if (pageId) {
-      document.getElementById(pageId).style.display = 'block';
-      if(pageId === 'page-produits') showProductList(document.querySelector('#page-produits .product-list'), Object.keys(productsData));
+    if (pageId === 'page-produits') {
+      showProductList(document.querySelector('#page-produits .product-list'), Object.keys(productsData));
     }
   });
 });
@@ -153,6 +147,3 @@ document.getElementById('order-btn').addEventListener('click', () => {
   tg.sendData(JSON.stringify({ product: productName, quantity: qty }));
   alert(`Commande envoyée : ${productName} - ${qty}`);
 });
-
-
-
