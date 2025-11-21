@@ -16,7 +16,7 @@ p{margin:10px 0;color:#ccc;}
 .card-details { display:none; margin-top:10px; }
 .card.expanded .card-details { display:block; }
 .card-header { display:flex; justify-content:space-between; align-items:center; }
-.arrow { transition: transform 0.3s ease; }
+.arrow { transition: transform 0.3s ease; display:inline-block; font-size:1.2em; color:#fff; }
 .card.expanded .arrow { transform: rotate(90deg); }
 
 /* Catégories */
