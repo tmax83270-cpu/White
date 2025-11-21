@@ -35,10 +35,10 @@ const productsData = {
   },
   cocaine: {
     title: "COCAINE ❄️",
-    subtitle: "",
-    description: "Produit de haute pureté.",
+    subtitle: "Ecaille ⚡️",
+    description: "Produit de Top qualité ressors a 0.9 convient tout autant pout les fumeurs que les sniffeurs 👃.",
     video: "assets/cocaine.mp4",
-    prices: [{ qty: "1g", price: "80€" }, { qty: "5g", price: "350€" }]
+    prices: [{ qty: "1g", price: "60€" }, { qty: "2g", price: "100€" }, {qty: "5g", price: "240€" }, {qty: "10g", price: "380€" }]
   },
   trois_mmc: {
     title: "3MMC 🇳🇱",
