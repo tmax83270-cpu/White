@@ -33,6 +33,13 @@ const productsData = {
     video: "assets/cali_weed_us.mp4",
     prices: [{ qty: "10g", price: "90€" }, { qty: "20g", price: "180€" }]
   },
+ cali_weed_us_1: {
+    title: "CALI WEED 🇺🇸",
+    subtitle: "Gelato Tropical 🌴",
+    description: "Sativa Californienne, très puissante.",
+    video: "assets/cali_weed_us.mp4",
+    prices: [{ qty: "4g", price: "50€" }, { qty: "8g", price: "90€" }]
+  },
   cocaine: {
     title: "COCAINE ❄️",
     subtitle: "Ecaille ⚡️",
@@ -45,12 +52,12 @@ const productsData = {
     subtitle: "Cailloux 🧊",
     description: "Produit stimulant, effet intense.",
     video: "assets/trois_mmc.mp4",
-    prices: [{ qty: "1g", price: "70€" }, { qty: "5g", price: "300€" }]
+    prices: [{ qty: "2g", price: "50€" }, { qty: "5g", price: "110€" }]
   },
   filtre_73u: {
     title: "FILTRÉ 73U ⚡️",
     subtitle: "NO FARM",
-    description: "Hash de haute qualité, bien filtré.",
+    description: "Hash top qualité, 73u.",
     video: "assets/filtre_73u.mp4",
     prices: [{ qty: "5g", price: "120€" }, { qty: "10g", price: "230€" }]
   },
@@ -59,16 +66,16 @@ const productsData = {
     subtitle: "Flavors 🌸",
     description: "Hash aromatique, texture unique.",
     video: "assets/jaune_mousse.mp4",
-    prices: [{ qty: "5g", price: "110€" }, { qty: "10g", price: "210€" }]
+    prices: [{ qty: "10g", price: "50€" }, { qty: "100g", price: "300€" }]
   },
   amnesia: {
-  title: "Amnesia 🇳🇱",
-  subtitle: "Sous-titre ou saveur",
+  title: "WEED 🇳🇱",
+  subtitle: "Amnesia 🌿🇳🇱",
   description: "Description complète de ton produit ici.",
   video: "assets/amnesia.mp4", // Mets le fichier vidéo correspondant
   prices: [
-    { qty: "1 unité", price: "10€" },
-    { qty: "2 unités", price: "18€" }
+    { qty: "6g", price: "50€" },
+    { qty: "12g", price: "100€" }
   ]
 }
 };
