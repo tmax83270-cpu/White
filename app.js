@@ -62,10 +62,10 @@ const productsData = {
     prices: [{ qty: "5g", price: "110€" }, { qty: "10g", price: "210€" }]
   },
   nouveau_produit: {
-  title: "NOM DU PRODUIT 🏷️",
+  title: "Amnesia 🇳🇱",
   subtitle: "Sous-titre ou saveur",
   description: "Description complète de ton produit ici.",
-  video: "assets/nom_du_produit.mp4", // Mets le fichier vidéo correspondant
+  video: "assets/amnesia.mp4", // Mets le fichier vidéo correspondant
   prices: [
     { qty: "1 unité", price: "10€" },
     { qty: "2 unités", price: "18€" }
