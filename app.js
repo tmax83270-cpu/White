@@ -60,7 +60,17 @@ const productsData = {
     description: "Hash aromatique, texture unique.",
     video: "assets/jaune_mousse.mp4",
     prices: [{ qty: "5g", price: "110€" }, { qty: "10g", price: "210€" }]
-  }
+  },
+  nouveau_produit: {
+  title: "NOM DU PRODUIT 🏷️",
+  subtitle: "Sous-titre ou saveur",
+  description: "Description complète de ton produit ici.",
+  video: "assets/nom_du_produit.mp4", // Mets le fichier vidéo correspondant
+  prices: [
+    { qty: "1 unité", price: "10€" },
+    { qty: "2 unités", price: "18€" }
+  ]
+}
 };
 
 // --- Produits page ---
