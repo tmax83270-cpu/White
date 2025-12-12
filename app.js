@@ -44,7 +44,7 @@ const productsData = {
     title: "3MMC 🇳🇱",
     subtitle: "Cailloux 🧊",
     description: "Produit stimulant, effet intense.",
-    video: "assets/3mmc.mp4",
+    video: "assets/trois_mmc.mp4",
     prices: [{ qty: "1g", price: "70€" }, { qty: "5g", price: "300€" }]
   },
   filtre_73u: {
