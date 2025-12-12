@@ -96,7 +96,7 @@ function showProductList(container, keys) {
 // --- Catégories ---
 const categoriesData = {
   festifs: ['cocaine', 'trois_mmc'],
-  weed: ['cali_weed_us', 'nouveau_produit'],
+  weed: ['cali_weed_us', 'amnesia'],
   hash: ['filtre_73u', 'jaune_mousse']
 };
 
