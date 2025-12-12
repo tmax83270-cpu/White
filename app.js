@@ -61,7 +61,7 @@ const productsData = {
     video: "assets/jaune_mousse.mp4",
     prices: [{ qty: "5g", price: "110€" }, { qty: "10g", price: "210€" }]
   },
-  nouveau_produit: {
+  amnesia: {
   title: "Amnesia 🇳🇱",
   subtitle: "Sous-titre ou saveur",
   description: "Description complète de ton produit ici.",
