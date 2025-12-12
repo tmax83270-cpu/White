@@ -40,7 +40,7 @@ const productsData = {
     video: "assets/cocaine.mp4",
     prices: [{ qty: "1g", price: "60€" }, { qty: "2g", price: "100€" }, {qty: "5g", price: "240€" }, {qty: "10g", price: "380€" }]
   },
-  trois_mmc: {
+  3mmc: {
     title: "3MMC 🇳🇱",
     subtitle: "Cailloux 🧊",
     description: "Produit stimulant, effet intense.",
