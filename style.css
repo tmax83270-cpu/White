@@ -57,3 +57,20 @@ p{margin:10px 0;color:#ccc;}
 .contact-btn.whatsapp { background:#25D366; color:#fff; }
 .contact-btn.telegram { background:#0088cc; color:#fff; }
 .contact-btn:hover { opacity:0.8; }
+
+.contact-btn.big {
+    padding: 15px 25px;
+    font-size: 1.2em;
+    border-radius: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.contact-btn.big:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+
+
