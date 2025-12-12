@@ -82,7 +82,7 @@ function showProductList(container, keys) {
     div.className = 'product';
     div.dataset.product = k;
     div.innerHTML = `
-      <div class="product-top"><img src="assets/${k}.jpg" alt="${prod.title}"></div>
+      <div class="product-top"><img src="https://raw.githubusercontent.com/tmax83270-cpu/White/main/assets/${k}.jpg" alt="${prod.title}">
       <div class="product-bottom">
         <h2>${prod.title}</h2>
         <h3>${prod.subtitle}</h3>
