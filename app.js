@@ -37,7 +37,7 @@ const productsData = {
     title: "CALI WEED 🇺🇸",
     subtitle: "Gelato Tropical 🌴",
     description: "Sativa Californienne, très puissante.",
-    video: "assets/cali_weed_us.mp4",
+    video: "assets/cali_weed_us_1.mp4",
     prices: [{ qty: "4g", price: "50€" }, { qty: "8g", price: "90€" }]
   },
   cocaine: {
