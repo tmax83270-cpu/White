@@ -26,8 +26,7 @@ document.querySelectorAll('.card').forEach(card => {
 
 // --- Données produits ---
 const productsData = {
-  
- cali_weed_us_1: {
+  cali_weed_us_1: {
     title: "CALI WEED 🇺🇸",
     subtitle: "Gelato Tropical 🌴",
     description: "Sativa Californienne, très puissante.",
@@ -37,7 +36,7 @@ const productsData = {
   cocaine: {
     title: "COCAINE ❄️",
     subtitle: "Ecaille ⚡️",
-    description: "Produit de Top qualité ressors a 0.9 convient tout autant pout les fumeurs que les sniffeurs 👃.",
+    description: "Produit de Top qualité ressors a 0.9 convient tout autant pour les fumeurs que les sniffeurs 👃.",
     video: "assets/cocaine.mp4",
     prices: [{ qty: "1g", price: "60€" }, { qty: "2g", price: "100€" }, {qty: "5g", price: "240€" }, {qty: "10g", price: "380€" }]
   },
@@ -63,15 +62,12 @@ const productsData = {
     prices: [{ qty: "10g", price: "50€" }, { qty: "100g", price: "300€" }]
   },
   amnesia: {
-  title: "WEED 🇳🇱",
-  subtitle: "Amnesia 🌿🇳🇱",
-  description: "Description complète de ton produit ici.",
-  video: "assets/amnesia.mp4", // Mets le fichier vidéo correspondant
-  prices: [
-    { qty: "6g", price: "50€" },
-    { qty: "12g", price: "100€" }
-  ]
-}
+    title: "WEED 🇳🇱",
+    subtitle: "Amnesia 🌿🇳🇱",
+    description: "Description complète de ton produit ici.",
+    video: "assets/amnesia.mp4",
+    prices: [{ qty: "6g", price: "50€" }, { qty: "12g", price: "100€" }]
+  }
 };
 
 // --- Produits page ---
@@ -144,12 +140,11 @@ document.addEventListener('click', e => {
   }
 });
 
-// --- Retour page produits ---
+// --- Retour page produit détaillé vers la liste des produits ---
 document.getElementById('back-to-produits').addEventListener('click', () => {
   document.getElementById('page-produit-detail').style.display = 'none';
   document.getElementById('page-produits').style.display = 'block';
 });
-
 
 // --- Commander ---
 document.getElementById('order-btn').addEventListener('click', () => {
