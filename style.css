@@ -48,8 +48,23 @@ p{margin:10px 0;color:#ccc;}
 .price-option:hover { transform:scale(1.05); }
 #order-btn { margin-top:10px; padding:10px 20px; border-radius:10px; background:#222; border:1px solid #555; cursor:pointer; }
 #order-btn:hover { background:#333; transform:scale(1.03); }
-#back-to-produits { margin-top:15px; padding:5px 10px; border-radius:8px; background:#222; border:1px solid #555; cursor:pointer; }
-#back-to-produits:hover { transform:scale(1.05); }
+.btn-white.big {
+    padding: 15px 25px;
+    font-size: 1.2em;
+    border-radius: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    background: #fff;
+    color: #000;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-white.big:hover {
+    background: #ddd;
+    transform: scale(1.05);
+}
 
 /* Contact */
 .contact-buttons { display:flex; justify-content:center; gap:15px; margin-top:15px; }
