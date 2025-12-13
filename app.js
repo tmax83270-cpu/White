@@ -150,11 +150,6 @@ document.getElementById('back-to-produits').addEventListener('click', () => {
   document.getElementById('page-produits').style.display = 'block';
 });
 
-// Bouton retour vers les catégories depuis la liste de produits
-document.getElementById('back-to-categories').addEventListener('click', () => {
-  document.getElementById('page-produits').style.display = 'none';
-  document.getElementById('page-categories').style.display = 'block';
-});
 
 // --- Commander ---
 document.getElementById('order-btn').addEventListener('click', () => {
