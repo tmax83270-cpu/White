@@ -26,13 +26,7 @@ document.querySelectorAll('.card').forEach(card => {
 
 // --- Données produits ---
 const productsData = {
-  cali_weed_us: {
-    title: "CALI WEED 🇺🇸",
-    subtitle: "Zkittles 🍒",
-    description: "Sativa Californienne, très puissante.",
-    video: "assets/cali_weed_us.mp4",
-    prices: [{ qty: "10g", price: "90€" }, { qty: "20g", price: "180€" }]
-  },
+  
  cali_weed_us_1: {
     title: "CALI WEED 🇺🇸",
     subtitle: "Gelato Tropical 🌴",
