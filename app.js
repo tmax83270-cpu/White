@@ -28,7 +28,7 @@ document.querySelectorAll('.card').forEach(card => {
 const productsData = {
   cali_weed_us_1: {
     title: "CALI WEED 🇺🇸",
-    subtitle: "Gelato Tropical 🌴",
+    subtitle: "Super Boof ✨",
     description: "Sativa Californienne, très puissante.",
     video: "assets/cali_weed_us_1.mp4",
     prices: [{ qty: "4g", price: "50€" }, { qty: "8g", price: "90€" }]
@@ -52,21 +52,21 @@ const productsData = {
     subtitle: "NO FARM",
     description: "Hash top qualité, 73u.",
     video: "assets/filtre_73u.mp4",
-    prices: [{ qty: "5g", price: "120€" }, { qty: "10g", price: "230€" }]
+    prices: [{ qty: "❌❌", price: "❌❌" }, { qty: "❌❌", price: "❌❌" }]
   },
   jaune_mousse: {
     title: "JAUNE MOUSSE 🧽",
-    subtitle: "Flavors 🌸",
+    subtitle: "Gelato",
     description: "Hash aromatique, texture unique.",
     video: "assets/jaune_mousse.mp4",
-    prices: [{ qty: "10g", price: "50€" }, { qty: "100g", price: "300€" }]
+    prices: [{ qty: "10g", price: "50€" }, { qty: "100g", price: "280€" }]
   },
   amnesia: {
     title: "WEED 🇳🇱",
     subtitle: "Amnesia 🌿🇳🇱",
     description: "Description complète de ton produit ici.",
     video: "assets/amnesia.mp4",
-    prices: [{ qty: "6g", price: "50€" }, { qty: "12g", price: "100€" }]
+    prices: [{ qty: "❌❌", price: "❌❌" }, { qty: "❌❌", price: "❌❌" }]
   }
 };
 
