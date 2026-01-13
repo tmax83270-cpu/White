@@ -1,5 +1,11 @@
 body {
-    background:#000; color:#fff; font-family:Arial,sans-serif; text-align:center; margin:0; padding:20px;
+    background: url('assets/fondecran.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color:#fff;
+    font-family:Arial,sans-serif;
+    text-align:center;
+    margin:0;
+    padding:20px;
 }
 h1,h2,h3{margin:10px 0;}
 p{margin:10px 0;color:#ccc;}
