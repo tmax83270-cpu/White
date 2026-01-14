@@ -1,39 +1,49 @@
+// --- TELEGRAM WEBAPP INIT ---
 const tg = window.Telegram.WebApp;
 tg.expand();
 
+// --- HAPTIC VIBRATION ---
 function haptic() {
   if (window.Telegram && Telegram.WebApp && Telegram.WebApp.HapticFeedback) {
     Telegram.WebApp.HapticFeedback.impactOccurred('light');
   }
 }
 
-// --- Navigation onglets ---
+// =============================
+// --- 1️⃣ NAVIGATION ONGLETS ---
+// =============================
 document.querySelectorAll('.nav-item').forEach(btn => {
   btn.addEventListener('click', () => {
-
     haptic(); // 🔔 vibration
 
+    // Activer l'onglet cliqué
     document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
 
+    // Afficher la page correspondante
+    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
     const pageId = btn.dataset.page;
     document.getElementById(pageId).style.display = 'block';
 
+    // Si on clique sur Produits, afficher tous les produits
     if (pageId === 'page-produits') {
       showProductList(document.querySelector('#page-produits .product-list'), Object.keys(productsData));
     }
   });
 });
 
-// --- Accueil cartes ---
+// =============================
+// --- 2️⃣ CARTES ACCUEIL ---
+// =============================
 document.querySelectorAll('.card').forEach(card => {
   card.addEventListener('click', () => {
     card.classList.toggle('expanded');
   });
 });
 
-// --- Données produits ---
+// =============================
+// --- 3️⃣ DONNÉES PRODUITS ---
+// =============================
 const productsData = {
   cali_weed_us_1: {
     title: "CALI WEED 🇺🇸",
@@ -79,7 +89,9 @@ const productsData = {
   }
 };
 
-// --- Produits page ---
+// =============================
+// --- 4️⃣ AFFICHAGE PRODUITS ---
+// =============================
 function showProductList(container, keys) {
   container.innerHTML = '';
   keys.forEach(k => {
@@ -99,42 +111,47 @@ function showProductList(container, keys) {
   });
 }
 
-// --- Catégories ---
+// =============================
+// --- 5️⃣ CATÉGORIES ---
+// =============================
 const categoriesData = {
   festifs: ['cocaine', 'trois_mmc'],
   weed: ['cali_weed_us_1', 'amnesia'],
   hash: ['filtre_73u', 'jaune_mousse']
 };
 
-document.querySelectorAll('.category-card').forEach(card => {
-  const category = card.dataset.category;
-  const seeBtn = card.querySelector('.see-products');
-  seeBtn.addEventListener('click', () => {
+document.querySelectorAll('.see-products').forEach(btn => {
+  btn.addEventListener('click', () => {
+    haptic(); // 🔔 vibration
+
+    const category = btn.closest('.category-card').dataset.category;
     document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
     document.getElementById('page-produits').style.display = 'block';
     showProductList(document.querySelector('#page-produits .product-list'), categoriesData[category]);
   });
 });
 
-// --- Ouvrir produit détail ---
+// =============================
+// --- 6️⃣ OUVRIR PRODUIT DÉTAILLÉ ---
+// =============================
 function openProductDetail(key) {
+  haptic(); // 🔔 vibration lors de l’ouverture
+
   const data = productsData[key];
 
   // Cacher toutes les pages
   document.querySelectorAll('.page').forEach(p => {
     p.style.display = 'none';
-    p.classList.remove('page-animate'); // Reset animation
+    p.classList.remove('page-animate');
   });
 
   // Afficher la page produit détaillée
   const pageDetail = document.getElementById('page-produit-detail');
   pageDetail.style.display = 'block';
-
-  // Déclencher l'animation
   void pageDetail.offsetWidth; // reset CSS animation
   pageDetail.classList.add('page-animate');
 
-  // Remplir les données du produit
+  // Remplir les infos produit
   document.getElementById('product-title').textContent = data.title;
   document.getElementById('product-subtitle').textContent = data.subtitle || '';
   document.getElementById('product-description').textContent = data.description;
@@ -156,22 +173,29 @@ function openProductDetail(key) {
   });
 }
 
-// --- Cliquer sur VOIR ---
+// =============================
+// --- 7️⃣ CLIQUER SUR VOIR ---
+// =============================
 document.addEventListener('click', e => {
   if (e.target.classList.contains('voir-btn')) {
-    haptic(); // vibration
     openProductDetail(e.target.closest('.product').dataset.product);
   }
 });
-// --- Retour page produit détaillé vers la liste des produits ---
+
+// =============================
+// --- 8️⃣ BOUTON RETOUR ---
+// =============================
 document.getElementById('back-to-produits').addEventListener('click', () => {
   haptic(); // 🔔 vibration
   document.getElementById('page-produit-detail').style.display = 'none';
   document.getElementById('page-produits').style.display = 'block';
 });
 
-// --- Commander ---
+// =============================
+// --- 9️⃣ COMMANDER ---
+// =============================
 document.getElementById('order-btn').addEventListener('click', () => {
+  haptic(); // 🔔 vibration lors de la commande
   const selected = document.querySelector('.price-option.selected');
   const qty = selected ? selected.textContent : '';
   const productName = document.getElementById('product-title').textContent;
@@ -179,15 +203,12 @@ document.getElementById('order-btn').addEventListener('click', () => {
   alert(`Commande envoyée : ${productName} - ${qty}`);
 });
 
-// retour haptic
- document.addEventListener('click', (e) => {
-
-  const btn = e.target.closest(
-    '.nav-item, .voir-btn, .see-products, .contact-btn'
-  );
-
-  if (!btn) return;
-
-  haptic();
-
+// =============================
+// --- 🔟 CONTACT (WhatsApp / Telegram) ---
+// =============================
+document.querySelectorAll('.contact-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    haptic(); // 🔔 vibration
+    // lien <a> s'ouvrira normalement
+  });
 });
