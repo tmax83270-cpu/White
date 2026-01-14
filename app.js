@@ -220,3 +220,6 @@ document.getElementById('back-to-categories').addEventListener('click', () => {
   document.getElementById('page-produits').style.display = 'none';
   document.getElementById('page-categories').style.display = 'block';
 });
+
+const banner = document.getElementById('top-banner');
+banner.innerHTML = '<span>🚀 Bienvenue sur PanameDelivery ! Promotions du jour : Gelato et CALI WEED disponibles ! 🔥</span>';
