@@ -1,6 +1,12 @@
 const tg = window.Telegram.WebApp;
 tg.expand();
 
+function haptic() {
+  if (window.Telegram && Telegram.WebApp && Telegram.WebApp.HapticFeedback) {
+    Telegram.WebApp.HapticFeedback.impactOccurred('light');
+  }
+}
+
 // --- Navigation onglets ---
 document.querySelectorAll('.nav-item').forEach(btn => {
   btn.addEventListener('click', () => {
