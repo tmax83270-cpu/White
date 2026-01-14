@@ -10,6 +10,9 @@ function haptic() {
 // --- Navigation onglets ---
 document.querySelectorAll('.nav-item').forEach(btn => {
   btn.addEventListener('click', () => {
+
+    haptic(); // 🔔 vibration
+
     document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
