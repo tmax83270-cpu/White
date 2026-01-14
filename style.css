@@ -1,16 +1,10 @@
 body {
-    margin: 0;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    color: #fff;
-    text-align: center;
-
-    /* Fond image */
-    background: url('assets/ton-fond.jpg') no-repeat center center fixed;
-    background-size: cover;
-
-    /* Overlay pour lisibilité du texte */
-    position: relative;
+    background:#000; 
+    color:#fff; 
+    font-family:Arial,sans-serif; 
+    text-align:center; 
+    margin:0; 
+    padding:20px;
 }
 
 body::before {
