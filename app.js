@@ -165,6 +165,7 @@ document.addEventListener('click', e => {
 });
 // --- Retour page produit détaillé vers la liste des produits ---
 document.getElementById('back-to-produits').addEventListener('click', () => {
+  haptic(); // 🔔 vibration
   document.getElementById('page-produit-detail').style.display = 'none';
   document.getElementById('page-produits').style.display = 'block';
 });
