@@ -223,4 +223,24 @@ document.getElementById('back-to-categories').addEventListener('click', () => {
 
 const banner = document.getElementById('top-banner');
 banner.innerHTML = '<span>🚀 Bienvenue sur PanameDelivery ! Promotions du jour : Gelato et CALI WEED disponibles ! 🔥</span>';
+
+function updateTickerSpeed() {
+  const wrapper = document.querySelector('.ticker-wrapper');
+  const ticker = wrapper.querySelector('.ticker');
+
+  const textWidth = ticker.scrollWidth;
+  const containerWidth = wrapper.offsetWidth;
+
+  // vitesse souhaitée : 100 pixels par seconde
+  const pixelsPerSecond = 100;
+
+  const duration = (textWidth + containerWidth) / pixelsPerSecond;
+
+  // appliquer l'animation directement au chargement
+  wrapper.style.animation = `scrollTicker ${duration}s linear infinite`;
+}
+
+// Déclenche dès que la page est chargée
+window.addEventListener('load', updateTickerSpeed);
+window.addEventListener('resize', updateTickerSpeed); // recalcul si écran change
  
