@@ -7,14 +7,6 @@ body {
     padding:20px;
 }
 
-body::before {
-    content: '';
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* noir transparent */
-    z-index: -1;
-}
 
 h1,h2,h3{margin:10px 0;}
 p{margin:10px 0;color:#ccc;}
