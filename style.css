@@ -183,3 +183,27 @@ p{margin:10px 0;color:#ccc;}
   }
 }
 
+/* --- Bande défilante en haut --- */
+#top-banner {
+  width: 100%;
+  background: #222;       /* fond sombre */
+  color: #fff;            /* texte blanc */
+  padding: 5px 0;
+  font-weight: bold;
+  font-size: 0.9em;
+  overflow: hidden;       /* cache le texte qui sort */
+  position: relative;
+  white-space: nowrap;    /* texte sur une seule ligne */
+}
+
+/* Animation du texte */
+#top-banner span {
+  display: inline-block;
+  padding-left: 100%;     /* commence hors de l’écran à droite */
+  animation: scrollText 15s linear infinite;
+}
+
+@keyframes scrollText {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
