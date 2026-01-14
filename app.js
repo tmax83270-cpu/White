@@ -224,23 +224,30 @@ document.getElementById('back-to-categories').addEventListener('click', () => {
 const banner = document.getElementById('top-banner');
 banner.innerHTML = '<span>🚀 Bienvenue sur PanameDelivery ! Promotions du jour : Gelato et CALI WEED disponibles ! 🔥</span>';
 
-function updateTickerSpeed() {
+function startTicker() {
   const wrapper = document.querySelector('.ticker-wrapper');
-  const ticker = wrapper.querySelector('.ticker');
+  const tickers = wrapper.querySelectorAll('.ticker');
 
-  const textWidth = ticker.scrollWidth;
+  // On calcule la largeur totale du texte le plus long
+  let maxWidth = 0;
+  tickers.forEach(t => {
+    if (t.scrollWidth > maxWidth) maxWidth = t.scrollWidth;
+  });
+
   const containerWidth = wrapper.offsetWidth;
+  const pixelsPerSecond = 100; // vitesse
+  const duration = (maxWidth + containerWidth) / pixelsPerSecond;
 
-  // vitesse souhaitée : 100 pixels par seconde
-  const pixelsPerSecond = 100;
+  // Supprimer l'ancienne animation si elle existe
+  wrapper.style.animation = 'none';
 
-  const duration = (textWidth + containerWidth) / pixelsPerSecond;
+  // Forcer le recalcul
+  void wrapper.offsetWidth;
 
-  // appliquer l'animation directement au chargement
+  // Ajouter l'animation avec la durée calculée
   wrapper.style.animation = `scrollTicker ${duration}s linear infinite`;
 }
 
-// Déclenche dès que la page est chargée
-window.addEventListener('load', updateTickerSpeed);
-window.addEventListener('resize', updateTickerSpeed); // recalcul si écran change
- 
+// Lancer automatiquement au chargement
+window.addEventListener('load', startTicker);
+window.addEventListener('resize', startTicker);
