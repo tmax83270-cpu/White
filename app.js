@@ -251,3 +251,24 @@ function startTicker() {
 // Lancer automatiquement au chargement
 window.addEventListener('load', startTicker);
 window.addEventListener('resize', startTicker);
+
+
+
+function createSnowFlakes(count = 50) {
+  const container = document.getElementById('snow-container');
+  for (let i = 0; i < count; i++) {
+    const snow = document.createElement('div');
+    snow.className = 'snowflake';
+    snow.innerHTML = '❄️'; // tu peux mettre ❄️ ou * 
+    snow.style.left = Math.random() * window.innerWidth + 'px';
+    snow.style.fontSize = (Math.random() * 20 + 10) + 'px';
+    snow.style.animationDuration = (Math.random() * 10 + 5) + 's';
+    snow.style.opacity = Math.random();
+    container.appendChild(snow);
+  }
+}
+
+// Lancer la neige dès le chargement
+window.addEventListener('load', () => {
+  createSnowFlakes(80); // tu peux augmenter le nombre pour plus de neige
+});
