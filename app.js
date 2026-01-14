@@ -212,3 +212,11 @@ document.querySelectorAll('.contact-btn').forEach(btn => {
     // lien <a> s'ouvrira normalement
   });
 });
+
+
+// --- BOUTON RETOUR AUX CATEGORIES ---
+document.getElementById('back-to-categories').addEventListener('click', () => {
+  haptic(); // 🔔 vibration
+  document.getElementById('page-produits').style.display = 'none';
+  document.getElementById('page-categories').style.display = 'block';
+});
