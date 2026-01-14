@@ -178,23 +178,15 @@ document.getElementById('order-btn').addEventListener('click', () => {
   alert(`Commande envoyée : ${productName} - ${qty}`);
 });
 
+// retour haptic
+ document.addEventListener('click', (e) => {
 
-// --- HAPTIC SUR TOUS LES BOUTONS ---
-document.addEventListener('click', (e) => {
+  const btn = e.target.closest(
+    '.nav-item, .voir-btn, .see-products, .contact-btn'
+  );
 
-  // Boutons VOIR produit
-  if (e.target.classList.contains('voir-btn')) {
-    haptic();
-  }
+  if (!btn) return;
 
-  // Boutons "Voir les produits" (catégories)
-  if (e.target.classList.contains('see-products')) {
-    haptic();
-  }
-
-  // Boutons Telegram / WhatsApp
-  if (e.target.classList.contains('contact-btn')) {
-    haptic();
-  }
+  haptic();
 
 });
