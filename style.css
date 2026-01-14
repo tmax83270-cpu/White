@@ -75,7 +75,7 @@ p{margin:10px 0;color:#ccc;}
 
 /* Contact */
 .contact-buttons { display:flex; justify-content:center; gap:15px; margin-top:15px; }
-.contact-btn { padding:10px 20px; border-radius:10px; cursor:pointer; }
+.contact-btn { padding:10px 20px; border-radius:10px; cursor:pointer; text-decoration: none; }
 .contact-btn.whatsapp { background:#25D366; color:#fff; }
 .contact-btn.telegram { background:#0088cc; color:#fff; }
 .contact-btn:hover { opacity:0.8; }
