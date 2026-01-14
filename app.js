@@ -254,21 +254,30 @@ window.addEventListener('resize', startTicker);
 
 
 
-function createSnowFlakes(count = 50) {
-  const container = document.getElementById('snow-container');
-  for (let i = 0; i < count; i++) {
-    const snow = document.createElement('div');
-    snow.className = 'snowflake';
-    snow.innerHTML = '❄️'; // tu peux mettre ❄️ ou * 
-    snow.style.left = Math.random() * window.innerWidth + 'px';
-    snow.style.fontSize = (Math.random() * 20 + 10) + 'px';
-    snow.style.animationDuration = (Math.random() * 10 + 5) + 's';
-    snow.style.opacity = Math.random();
-    container.appendChild(snow);
-  }
+// --- NEIGE ---
+function createSnowflake() {
+  const snowContainer = document.getElementById('snow-container');
+  const flake = document.createElement('div');
+  flake.className = 'snowflake';
+  flake.textContent = '❄'; // tu peux mettre "*" ou "❄"
+  
+  // position et taille aléatoire
+  flake.style.left = Math.random() * window.innerWidth + 'px';
+  flake.style.fontSize = (10 + Math.random() * 20) + 'px';
+  flake.style.opacity = 0.5 + Math.random() * 0.5;
+  
+  // vitesse aléatoire
+  const duration = 10 + Math.random() * 20; // en secondes
+  flake.style.animationDuration = duration + 's';
+  flake.style.animationDelay = Math.random() * 5 + 's';
+  
+  snowContainer.appendChild(flake);
+
+  // supprimer le flocon après qu’il soit tombé
+  setTimeout(() => {
+    snowContainer.removeChild(flake);
+  }, duration * 1000);
 }
 
-// Lancer la neige dès le chargement
-window.addEventListener('load', () => {
-  createSnowFlakes(80); // tu peux augmenter le nombre pour plus de neige
-});
+// créer un nouveau flocon toutes les 200ms
+setInterval(createSnowflake, 200);
