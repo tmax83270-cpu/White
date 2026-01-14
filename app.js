@@ -222,5 +222,5 @@ document.getElementById('back-to-categories').addEventListener('click', () => {
 });
 
 const banner = document.getElementById('top-banner');
-banner.innerHTML = '<span>🚀 Bienvenue sur PanameDelivery ! Promotions du jour : Gelato et CALI WEED disponibles ! 🔥 </
+banner.innerHTML = '<span>🚀 Bienvenue sur PanameDelivery ! Promotions du jour : Gelato et CALI WEED disponibles ! 🔥</span>';
  
