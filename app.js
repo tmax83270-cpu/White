@@ -110,8 +110,22 @@ document.querySelectorAll('.category-card').forEach(card => {
 // --- Ouvrir produit détail ---
 function openProductDetail(key) {
   const data = productsData[key];
-  document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-  document.getElementById('page-produit-detail').style.display = 'block';
+
+  // Cacher toutes les pages
+  document.querySelectorAll('.page').forEach(p => {
+    p.style.display = 'none';
+    p.classList.remove('page-animate'); // Reset animation
+  });
+
+  // Afficher la page produit détaillée
+  const pageDetail = document.getElementById('page-produit-detail');
+  pageDetail.style.display = 'block';
+
+  // Déclencher l'animation
+  void pageDetail.offsetWidth; // reset CSS animation
+  pageDetail.classList.add('page-animate');
+
+  // Remplir les données du produit
   document.getElementById('product-title').textContent = data.title;
   document.getElementById('product-subtitle').textContent = data.subtitle || '';
   document.getElementById('product-description').textContent = data.description;
