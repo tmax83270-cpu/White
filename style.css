@@ -183,36 +183,37 @@ p{margin:10px 0;color:#ccc;}
   }
 }
 
-/* --- Bande défilante en haut --- */
+/* --- Bande défilante --- */
 #top-banner {
   width: 100%;
-  background: #222;      /* fond sombre */
-  color: #fff;           /* texte blanc */
-  padding: 5px 0;
+  background: #000;          /* fond noir */
+  color: #fff;               /* texte blanc */
   font-weight: bold;
   font-size: 0.9em;
-  overflow: hidden;      /* cache le texte qui dépasse */
-  position: fixed;       /* toujours visible en haut */
+  overflow: hidden;          /* cache le texte hors écran */
+  position: fixed;           /* toujours en haut */
   top: 0;
   left: 0;
-  z-index: 999;          /* au-dessus de tout */
-  white-space: nowrap;   /* texte sur une seule ligne */
+  z-index: 999;
+  height: 30px;              /* hauteur de la bande */
+  display: flex;
+  align-items: center;
 }
 
 /* Texte qui défile */
-#top-banner span {
+.ticker {
   display: inline-block;
-  padding-left: 100%;    /* commence hors écran à droite */
-  animation: scrollText 15s linear infinite;
+  padding-left: 100%;        /* commence hors écran à droite */
+  white-space: nowrap;        /* texte sur une seule ligne */
+  animation: tickerAnim 10s linear infinite;
 }
 
-@keyframes scrollText {
-  0% { transform: translateX(0); }
+@keyframes tickerAnim {
+  0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
 }
 
-/* Ajuster le contenu principal pour ne pas passer sous la bande */
+/* Décalage du contenu principal pour ne pas passer sous la bande */
 #app {
-  padding-top: 30px; /* correspond à la hauteur de la bande */
-}
+  padding-top: 30px;         /* même hauteur que #top-banner */
 }
