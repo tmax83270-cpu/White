@@ -159,10 +159,10 @@ function openProductDetail(key) {
 // --- Cliquer sur VOIR ---
 document.addEventListener('click', e => {
   if (e.target.classList.contains('voir-btn')) {
+    haptic(); // vibration
     openProductDetail(e.target.closest('.product').dataset.product);
   }
 });
-
 // --- Retour page produit détaillé vers la liste des produits ---
 document.getElementById('back-to-produits').addEventListener('click', () => {
   document.getElementById('page-produit-detail').style.display = 'none';
