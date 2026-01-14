@@ -4,58 +4,151 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PanameDelivery - MiniApp</title>
-
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+<div id="app">
 
-  <!-- ❄️ NEIGE (OBLIGATOIRE EN PREMIER) -->
-  <canvas id="snow-canvas"></canvas>
-
-  <!-- 🔴 BANDE DÉFILANTE -->
-  <div id="top-banner">
-    <div class="ticker">
-      🚀 BIENVENUE CHEZ PANAME DELIVERY — LIVRAISONS 7J/7 — WHATSAPP & TELEGRAM 🚀
+  <!-- Header -->
+  <header class="topbar">
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="THEGD33 Logo" class="logo">
     </div>
-  </div>
+    <nav class="nav">
+      <button class="nav-item active" data-page="page-accueil">🏠 Accueil</button>
+      <button class="nav-item" data-page="page-categories">📱 Catégories</button>
+      <button class="nav-item" data-page="page-produits">🛍️ Produits</button>
+      <button class="nav-item" data-page="page-contact">✉️ Contact</button>
+    </nav>
+  </header>
 
-  <!-- APP -->
-  <div id="app">
+  <main class="content">
 
-    <!-- Header -->
-    <header class="topbar">
-      <img src="assets/logo.png" class="logo">
-      <nav class="nav">
-        <button class="nav-item active" data-page="page-accueil">🏠 Accueil</button>
-        <button class="nav-item" data-page="page-categories">📱 Catégories</button>
-        <button class="nav-item" data-page="page-produits">🛍️ Produits</button>
-        <button class="nav-item" data-page="page-contact">✉️ Contact</button>
-      </nav>
-    </header>
+    <!-- Accueil -->
+    <section class="page" id="page-accueil">
+      <div class="hero">
+        <h1 class="title">Bienvenue sur notre boutique</h1>
+        <p class="subtitle">Découvrez nos produits et services</p>
+      </div>
 
-    <main class="content">
+      <section class="cards">
+        <div class="card" data-key="livraison">
+          <div class="card-header">
+            <h3>LIVRAISON</h3>
+            <span class="arrow">▶</span>
+          </div>
+          <div class="card-details">
+            <p>Envoi nous : nom + commande + adresse exacte, un temps de livraison vous sera communiqué dans les minutes suivant votre message.</p>
+          </div>
+        </div>
 
-      <section class="page" id="page-accueil">
-        <h1>Bienvenue</h1>
+        <div class="card" data-key="meetup">
+          <div class="card-header">
+            <h3>MEET UP</h3>
+            <span class="arrow">▶</span>
+          </div>
+          <div class="card-details">
+            <p>Une adresse discrète en Seine-Saint-Denis (93) vous sera communiquée avec drive disponible comme au McDonald’s.</p>
+          </div>
+        </div>
+
+        <div class="card" data-key="horaires">
+          <div class="card-header">
+            <h3>HORAIRES</h3>
+            <span class="arrow">▶</span>
+          </div>
+          <div class="card-details">
+            <p>Livraisons : 14h00 - 02h00<br>Meet Up : 13h00 - 03h00<br>Prises de commandes : 10h00 - 06h00</p>
+          </div>
+        </div>
+
+        <div class="card" data-key="minimum">
+          <div class="card-header">
+            <h3>MINIMUM DE COMMANDE</h3>
+            <span class="arrow">▶</span>
+          </div>
+          <div class="card-details">
+            <p>75/92/93/94/95 : Minimum 50€<br>77/78/91 : Minimum 100€<br>Hors IDF : Minimum 150€</p>
+          </div>
+        </div>
       </section>
+    </section>
 
-      <section class="page" id="page-categories" style="display:none">
-        <h2>Catégories</h2>
-      </section>
+    <!-- Catégories -->
+    <section class="page" id="page-categories" style="display:none">
+      <h2>Catégories</h2>
+      <div class="categories-container">
+        <div class="category-card" data-category="festifs">
+          <div class="category-image"><img src="assets/festifs.jpg" alt="Menu Festif"></div>
+          <div class="category-text">
+            <h3>Menu Festif 🥳</h3>
+            <div class="btn-white see-products">Voir les produits &gt;</div>
+          </div>
+        </div>
+        <div class="category-card" data-category="hash">
+          <div class="category-image"><img src="assets/hash.jpg" alt="Menu Hash"></div>
+          <div class="category-text">
+            <h3>Menu Hash 🍫</h3>
+            <div class="btn-white see-products">Voir les produits &gt;</div>
+          </div>
+        </div>
+        <div class="category-card" data-category="weed">
+          <div class="category-image"><img src="assets/weed.jpg" alt="Menu Weed"></div>
+          <div class="category-text">
+            <h3>Menu Weed 🌿</h3>
+            <div class="btn-white see-products">Voir les produits &gt;</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <section class="page" id="page-produits" style="display:none">
-        <h2>Produits</h2>
-      </section>
+    <!-- Produits -->
+    <section class="page" id="page-produits" style="display:none">
+      <h2>Nos produits</h2>
+      <div class="product-list"></div>
+    </section>
 
-      <section class="page" id="page-contact" style="display:none">
-        <h2>Contact</h2>
-      </section>
+    <!-- Page produit détaillée -->
+    <section class="page" id="page-produit-detail" style="display:none">
+      <div class="product-section">
+        <button id="back-to-produits" class="btn-white big">⬅ Retour</button>
+      </div>
+      <div id="product-media">
+        <video id="product-video" width="100%" controls>
+          <source id="product-video-src" src="" type="video/mp4">
+        </video>
+      </div>
+      <div class="product-section" id="product-name">
+        <h2 id="product-title"></h2>
+        <h3 id="product-subtitle"></h3>
+      </div>
+      <div class="product-section" id="product-description-container">
+        <h3>📝 Description</h3>
+        <p id="product-description"></p>
+      </div>
+      <div class="product-section" id="product-prices-container">
+        <h3>💰 Prix et quantités</h3>
+        <div id="product-prices" class="price-grid"></div>
+      </div>
+      <div class="product-section" id="product-order">
+        <a href="https://wa.me/33759873968" target="_blank" class="contact-btn whatsapp">📱WhatsApp</a>
+        <a href="https://t.me/PanameDelivery" target="_blank" class="contact-btn telegram">✈️Telegram</a>
+      </div>
+    </section>
 
-    </main>
-  </div>
+    <!-- Contact -->
+    <section class="page" id="page-contact" style="display:none">
+      <h2>Contact</h2>
+      <div class="contact-buttons">
+        <a href="https://wa.me/33759873968" target="_blank" class="contact-btn big whatsapp">📱 WhatsApp</a>
+        <a href="https://t.me/PanameDelivery" target="_blank" class="contact-btn big telegram">✈️ Telegram</a>
+      </div>
+    </section>
 
-  <script src="app.js" defer></script>
+  </main>
+</div>
+
+<script src="app.js?v=2" defer></script>
 </body>
 </html>
