@@ -167,4 +167,19 @@ p{margin:10px 0;color:#ccc;}
   animation: slideFadeIn 0.5s ease forwards;
 }
 
+/* --- Animation ouverture page produit --- */
+.page-animate {
+  animation: slideFadeIn 0.4s ease forwards;
+}
+
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
