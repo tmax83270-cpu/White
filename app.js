@@ -52,6 +52,14 @@ const productsData = {
     video: "assets/cali_weed_us_1.mp4",
     prices: [{ qty: "4g", price: "50€" }, { qty: "8g", price: "90€" }]
   },
+  cali_weed_us_2: {
+    title: "CALI WEED 🇺🇸",
+    subtitle: "RS 11 ⛽️ ",
+    description: "Sativa Californienne, très puissante.",
+    video: "assets/cali_weed_us_2.mp4",
+    prices: [{ qty: "4g", price: "50€" }, { qty: "8g", price: "90€" }]
+  },
+
   cocaine: {
     title: "COCAINE ❄️",
     subtitle: "Ecaille ⚡️",
