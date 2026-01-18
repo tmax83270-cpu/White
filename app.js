@@ -83,10 +83,10 @@ const productsData = {
   },
   jaune_mousse: {
     title: "JAUNE MOUSSE 🧽",
-    subtitle: "Gelato",
+    subtitle: "Gelato,simpson",
     description: "Hash aromatique, texture unique.",
     video: "assets/jaune_mousse.mp4",
-    prices: [{ qty: "10g", price: "50€" }, { qty: "100g", price: "230€" }]
+    prices: [{ qty: "10g", price: "50€" }, { qty: "100g", price: "230€" }, { qty: "1kilo", price: "2000€" }  ]
   },
   amnesia: {
     title: "WEED 🇳🇱",
