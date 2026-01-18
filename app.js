@@ -124,7 +124,7 @@ function showProductList(container, keys) {
 // =============================
 const categoriesData = {
   festifs: ['cocaine', 'trois_mmc'],
-  weed: ['cali_weed_us_1', 'amnesia'],
+  weed: ['cali_weed_us_1','cali_weed_us_2', 'amnesia'],
   hash: ['filtre_73u', 'jaune_mousse']
 };
 
