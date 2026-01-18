@@ -86,11 +86,11 @@ const productsData = {
     subtitle: "Gelato",
     description: "Hash aromatique, texture unique.",
     video: "assets/jaune_mousse.mp4",
-    prices: [{ qty: "10g", price: "50€" }, { qty: "100g", price: "280€" }]
+    prices: [{ qty: "10g", price: "50€" }, { qty: "100g", price: "230€" }]
   },
   amnesia: {
     title: "WEED 🇳🇱",
-    subtitle: "Amnesia 🌿🇳🇱",
+    subtitle: "Amnesia 🌿",
     description: "Description complète de ton produit ici.",
     video: "assets/amnesia.mp4",
     prices: [{ qty: "❌❌", price: "❌❌" }, { qty: "❌❌", price: "❌❌" }]
