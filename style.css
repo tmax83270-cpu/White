@@ -295,3 +295,23 @@ p{margin:10px 0;color:#ccc;}
     opacity: 1;
   }
 }
+
+/* Conteneur progress bar */
+#splash-progress-container {
+  width: 80%;
+  height: 6px;
+  background: #333;
+  border-radius: 3px;
+  margin: 20px auto 0; /* sous le logo */
+  overflow: hidden;
+}
+
+/* Barre qui avance */
+#splash-progress {
+  width: 0%;
+  height: 100%;
+  background: #00ff99;
+  border-radius: 3px;
+  transition: width 0.1s linear;
+}
+
