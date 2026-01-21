@@ -10,6 +10,22 @@ function haptic() {
 }
 
 // =============================
+// --- SPLASH SCREEN 2s ========
+// =============================
+const splash = document.getElementById('splash');
+const app = document.getElementById('app');
+
+// Afficher le splash screen pendant 2 secondes puis basculer sur l'app
+setTimeout(() => {
+  splash.style.transition = 'opacity 0.4s ease';
+  splash.style.opacity = '0';
+  setTimeout(() => {
+    splash.style.display = 'none';
+    app.style.display = 'block';
+  }, 400); // attendre que le fade out se termine
+}, 2000); // splash visible 2 secondes
+
+// =============================
 // --- 1️⃣ NAVIGATION ONGLETS ---
 // =============================
 document.querySelectorAll('.nav-item').forEach(btn => {
@@ -59,7 +75,6 @@ const productsData = {
     video: "assets/cali_weed_us_2.mp4",
     prices: [{ qty: "4g", price: "50€" }, { qty: "8g", price: "90€" }]
   },
-
   cocaine: {
     title: "COCAINE ❄️",
     subtitle: "Ecaille ⚡️",
@@ -86,7 +101,7 @@ const productsData = {
     subtitle: "Gelato,simpson",
     description: "Hash aromatique, texture unique.",
     video: "assets/jaune_mousse.mp4",
-    prices: [{ qty: "10g", price: "50€" }, { qty: "100g", price: "230€" }, { qty: "1kilo", price: "2000€" }  ]
+    prices: [{ qty: "10g", price: "50€" }, { qty: "100g", price: "230€" }, { qty: "1kilo", price: "2000€" }]
   },
   amnesia: {
     title: "WEED 🇳🇱",
@@ -130,8 +145,7 @@ const categoriesData = {
 
 document.querySelectorAll('.see-products').forEach(btn => {
   btn.addEventListener('click', () => {
-    haptic(); // 🔔 vibration
-
+    haptic();
     const category = btn.closest('.category-card').dataset.category;
     document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
     document.getElementById('page-produits').style.display = 'block';
@@ -143,23 +157,19 @@ document.querySelectorAll('.see-products').forEach(btn => {
 // --- 6️⃣ OUVRIR PRODUIT DÉTAILLÉ ---
 // =============================
 function openProductDetail(key) {
-  haptic(); // 🔔 vibration lors de l’ouverture
-
+  haptic();
   const data = productsData[key];
 
-  // Cacher toutes les pages
   document.querySelectorAll('.page').forEach(p => {
     p.style.display = 'none';
     p.classList.remove('page-animate');
   });
 
-  // Afficher la page produit détaillée
   const pageDetail = document.getElementById('page-produit-detail');
   pageDetail.style.display = 'block';
   void pageDetail.offsetWidth; // reset CSS animation
   pageDetail.classList.add('page-animate');
 
-  // Remplir les infos produit
   document.getElementById('product-title').textContent = data.title;
   document.getElementById('product-subtitle').textContent = data.subtitle || '';
   document.getElementById('product-description').textContent = data.description;
@@ -194,7 +204,7 @@ document.addEventListener('click', e => {
 // --- 8️⃣ BOUTON RETOUR ---
 // =============================
 document.getElementById('back-to-produits').addEventListener('click', () => {
-  haptic(); // 🔔 vibration
+  haptic();
   document.getElementById('page-produit-detail').style.display = 'none';
   document.getElementById('page-produits').style.display = 'block';
 });
@@ -203,7 +213,7 @@ document.getElementById('back-to-produits').addEventListener('click', () => {
 // --- 9️⃣ COMMANDER ---
 // =============================
 document.getElementById('order-btn').addEventListener('click', () => {
-  haptic(); // 🔔 vibration lors de la commande
+  haptic();
   const selected = document.querySelector('.price-option.selected');
   const qty = selected ? selected.textContent : '';
   const productName = document.getElementById('product-title').textContent;
@@ -215,92 +225,58 @@ document.getElementById('order-btn').addEventListener('click', () => {
 // --- 🔟 CONTACT (WhatsApp / Telegram) ---
 // =============================
 document.querySelectorAll('.contact-btn').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    haptic(); // 🔔 vibration
-    // lien <a> s'ouvrira normalement
-  });
+  btn.addEventListener('click', () => haptic());
 });
 
-
+// =============================
 // --- BOUTON RETOUR AUX CATEGORIES ---
+// =============================
 document.getElementById('back-to-categories').addEventListener('click', () => {
-  haptic(); // 🔔 vibration
+  haptic();
   document.getElementById('page-produits').style.display = 'none';
   document.getElementById('page-categories').style.display = 'block';
 });
 
+// =============================
+// --- BANNIÈRE DÉFILEMENT ======
+// =============================
 const banner = document.getElementById('top-banner');
-banner.innerHTML = '<span>🚀 Bienvenue sur PanameDelivery ! Promotions du jour : Gelato et CALI WEED disponibles ! 🔥</span>';
+if (banner) {
+  banner.innerHTML = '<span>🚀 Bienvenue sur PanameDelivery ! Promotions du jour : Gelato et CALI WEED disponibles ! 🔥</span>';
+}
 
 function startTicker() {
   const wrapper = document.querySelector('.ticker-wrapper');
+  if (!wrapper) return;
   const tickers = wrapper.querySelectorAll('.ticker');
-
-  // On calcule la largeur totale du texte le plus long
   let maxWidth = 0;
-  tickers.forEach(t => {
-    if (t.scrollWidth > maxWidth) maxWidth = t.scrollWidth;
-  });
-
+  tickers.forEach(t => { if (t.scrollWidth > maxWidth) maxWidth = t.scrollWidth; });
   const containerWidth = wrapper.offsetWidth;
-  const pixelsPerSecond = 100; // vitesse
+  const pixelsPerSecond = 100;
   const duration = (maxWidth + containerWidth) / pixelsPerSecond;
-
-  // Supprimer l'ancienne animation si elle existe
   wrapper.style.animation = 'none';
-
-  // Forcer le recalcul
   void wrapper.offsetWidth;
-
-  // Ajouter l'animation avec la durée calculée
   wrapper.style.animation = `scrollTicker ${duration}s linear infinite`;
 }
-
-// Lancer automatiquement au chargement
 window.addEventListener('load', startTicker);
 window.addEventListener('resize', startTicker);
 
-
-
-// --- NEIGE ---
+// =============================
+// --- NEIGE ========
+// =============================
 function createSnowflake() {
   const snowContainer = document.getElementById('snow-container');
+  if (!snowContainer) return;
   const flake = document.createElement('div');
   flake.className = 'snowflake';
-  flake.textContent = '❄'; // tu peux mettre "*" ou "❄"
-  
-  // position et taille aléatoire
+  flake.textContent = '❄';
   flake.style.left = Math.random() * window.innerWidth + 'px';
   flake.style.fontSize = (10 + Math.random() * 20) + 'px';
   flake.style.opacity = 0.5 + Math.random() * 0.5;
-  
-  // vitesse aléatoire
-  const duration = 10 + Math.random() * 20; // en secondes
+  const duration = 10 + Math.random() * 20;
   flake.style.animationDuration = duration + 's';
   flake.style.animationDelay = Math.random() * 5 + 's';
-  
   snowContainer.appendChild(flake);
-
-  // supprimer le flocon après qu’il soit tombé
-  setTimeout(() => {
-    snowContainer.removeChild(flake);
-  }, duration * 1000);
+  setTimeout(() => { snowContainer.removeChild(flake); }, duration * 1000);
 }
-
-// créer un nouveau flocon toutes les 200ms
 setInterval(createSnowflake, 200);
-
-// --- SPLASH SCREEN FIX TELEGRAM ---
-const splash = document.getElementById('splash');
-const app = document.getElementById('app');
-
-setTimeout(() => {
-  splash.style.transition = 'opacity 0.4s ease';
-  splash.style.opacity = '0';
-
-  setTimeout(() => {
-    splash.style.display = 'none';
-    app.style.display = 'block';
-  }, 400);
-
-}, 2000);
