@@ -264,3 +264,34 @@ p{margin:10px 0;color:#ccc;}
   0% { transform: translateY(0) translateX(0); }
   100% { transform: translateY(100vh) translateX(50px); }
 }
+
+/* SPLASH SCREEN */
+#splash {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.splash-logo {
+  width: 180px;
+  animation: splashZoom 2s ease forwards;
+}
+
+@keyframes splashZoom {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  40% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
