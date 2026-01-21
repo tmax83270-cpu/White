@@ -10,19 +10,30 @@ function haptic() {
 }
 
 // =============================
-// --- SPLASH SCREEN 2s ========
+// --- SPLASH SCREEN 2s avec progress bar ========
 // =============================
 const splash = document.getElementById('splash');
 const app = document.getElementById('app');
+const progress = document.getElementById('splash-progress');
 
-// Afficher le splash screen pendant 2 secondes puis basculer sur l'app
+// --- Progress bar ---
+let progressValue = 0; // commence à 0%
+const progressInterval = setInterval(() => {
+  progressValue += 1;              // augmente de 1%
+  progress.style.width = progressValue + '%';
+  if (progressValue >= 100) clearInterval(progressInterval); // stop à 100%
+}, 20); // 20ms * 100 = 2000ms = 2s
+
+// --- Afficher le splash pendant 2 secondes puis basculer sur l'app ---
 setTimeout(() => {
   splash.style.transition = 'opacity 0.4s ease';
   splash.style.opacity = '0';
+
   setTimeout(() => {
     splash.style.display = 'none';
     app.style.display = 'block';
   }, 400); // attendre que le fade out se termine
+
 }, 2000); // splash visible 2 secondes
 
 // =============================
