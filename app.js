@@ -289,3 +289,20 @@ function createSnowflake() {
 
 // créer un nouveau flocon toutes les 200ms
 setInterval(createSnowflake, 200);
+
+// --- SPLASH SCREEN ---
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const splash = document.getElementById('splash');
+    const app = document.getElementById('app');
+
+    splash.style.opacity = '0';
+    splash.style.transition = 'opacity 0.4s ease';
+
+    setTimeout(() => {
+      splash.style.display = 'none';
+      app.style.display = 'block';
+    }, 400);
+
+  }, 2000); // 2 secondes
+});
