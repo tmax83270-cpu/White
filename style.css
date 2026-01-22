@@ -315,3 +315,29 @@ p{margin:10px 0;color:#ccc;}
   transition: width 0.1s linear;
 }
 
+.back-btn {
+    background: linear-gradient(135deg, #ff7a18, #af002d); /* dégradé pro */
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* espace pour flèche et texte */
+}
+
+.back-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.back-btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
