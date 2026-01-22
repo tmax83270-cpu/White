@@ -316,7 +316,7 @@ p{margin:10px 0;color:#ccc;}
 }
 
 .back-btn {
-    background: linear-gradient(135deg, #ff7a18, #af002d); /* dégradé pro */
+    background: linear-gradient(135deg, #222, #444); /* sombre et élégant */
     color: #fff;
     border: none;
     padding: 12px 25px;
@@ -340,4 +340,3 @@ p{margin:10px 0;color:#ccc;}
     transform: scale(0.98);
     box-shadow: 0 3px 10px rgba(0,0,0,0.3);
 }
-
