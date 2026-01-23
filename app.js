@@ -76,6 +76,15 @@ const productsData = {
     video: "assets/cali_weed_us_2.mp4",
     prices: [{ qty: "4g", price: "50€" }, { qty: "8g", price: "90€" }]
   },
+  amnesia: {
+    title: "WEED 🇳🇱",
+    subtitle: "Amnesia 🌿",
+    description: "Description complète de ton produit ici.",
+    video: "assets/amnesia.mp4",
+    prices: [{ qty: "❌❌", price: "❌❌" }, { qty: "❌❌", price: "❌❌" }]
+  },
+  
+  
   cocaine: {
     title: "COCAINE ❄️",
     subtitle: "Ecaille ⚡️",
@@ -103,14 +112,8 @@ const productsData = {
     description: "Hash aromatique, texture unique.",
     video: "assets/jaune_mousse.mp4",
     prices: [{ qty: "10g", price: "50€" }, { qty: "100g", price: "230€" }, { qty: "1kilo", price: "2000€" }]
-  },
-  amnesia: {
-    title: "WEED 🇳🇱",
-    subtitle: "Amnesia 🌿",
-    description: "Description complète de ton produit ici.",
-    video: "assets/amnesia.mp4",
-    prices: [{ qty: "❌❌", price: "❌❌" }, { qty: "❌❌", price: "❌❌" }]
   }
+  
 };
 
 // =============================
