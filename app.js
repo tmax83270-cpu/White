@@ -252,3 +252,28 @@ function createSnowflake() {
   }, duration * 1000);
 }
 setInterval(createSnowflake, 200);
+
+
+//ANIMATION //
+
+function animateCards(sectionSelector) {
+  const cards = document.querySelectorAll(sectionSelector);
+  cards.forEach((card, i) => {
+    card.style.opacity = 0;
+    card.style.transform = 'translateY(15px)';
+    card.style.animation = 'none';
+    void card.offsetWidth; // reset animation
+    card.style.animation = `slideFadeIn 0.4s ease forwards`;
+    card.style.animationDelay = `${0.1 * (i+1)}s`;
+  });
+}
+
+// Lors du changement d'onglet
+document.querySelectorAll('.nav-item').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const pageId = btn.dataset.page;
+
+    if(pageId === 'page-accueil') animateCards('.cards .card');
+    if(pageId === 'page-qg') animateCards('.qg-cards .qg-card');
+  });
+});
