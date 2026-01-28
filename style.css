@@ -553,34 +553,3 @@ p { margin: 10px 0; color: #ccc; }
     font-size: 0.85em;
 }
 
-/* QG - carrousel avis clients */
-.qg-reviews {
-  display: flex;               
-  overflow-x: auto;            
-  gap: 15px;
-  padding-bottom: 10px;
-  scroll-snap-type: x mandatory; 
-  -webkit-overflow-scrolling: touch; 
-}
-
-.review {
-  flex: 0 0 250px;             
-  background: #111;
-  border: 1px solid #333;
-  border-radius: 15px;
-  padding: 12px;
-  font-size: 0.85em;
-  scroll-snap-align: start;    
-}
-
-/* Masquer les scrollbars */
-.qg-reviews::-webkit-scrollbar {
-  display: none;
-}
-.qg-reviews {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-
-
