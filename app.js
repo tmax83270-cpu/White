@@ -138,24 +138,7 @@ function showProductList(container, keys) {
   });
 }
 
-// =============================
-// --- 5️⃣ CATÉGORIES ---
-// =============================
-const categoriesData = {
-  festifs: ['cocaine', 'trois_mmc'],
-  weed: ['cali_weed_us_1','cali_weed_us_2', 'amnesia'],
-  hash: ['filtre_73u', 'jaune_mousse']
-};
 
-document.querySelectorAll('.see-products').forEach(btn => {
-  btn.addEventListener('click', () => {
-    haptic();
-    const category = btn.closest('.category-card').dataset.category;
-    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-    document.getElementById('page-produits').style.display = 'block';
-    showProductList(document.querySelector('#page-produits .product-list'), categoriesData[category]);
-  });
-});
 
 // =============================
 // --- 6️⃣ OUVRIR PRODUIT DÉTAILLÉ ---
