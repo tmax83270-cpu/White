@@ -418,3 +418,137 @@ p { margin: 10px 0; color: #ccc; }
 
 .back-btn:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
 .back-btn:active { transform: scale(0.98); box-shadow: 0 3px 10px rgba(0,0,0,0.3); }
+
+
+
+
+/* =====================================================
+   QG PAGE
+===================================================== */
+.qg-offer {
+    background: linear-gradient(135deg, #111, #1c1c1c);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 25px;
+    border: 1px solid #333;
+}
+
+.qg-offer .badge {
+    background: #f5a623;
+    color: #000;
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.qg-offer h2 {
+    font-size: 2em;
+    margin: 10px 0;
+}
+
+.qg-offer h2 span {
+    color: #f5a623;
+}
+
+.qg-offer p {
+    font-size: 1em;
+    color: #ccc;
+    margin: 5px 0;
+}
+
+.qg-offer strong {
+    display: block;
+    font-size: 1.1em;
+    margin-top: 10px;
+    color: #fff;
+}
+
+/* QG Cards (Menu) */
+.qg-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.qg-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(145deg, #1a1a1a, #111);
+    border-radius: 20px;
+    padding: 15px;
+    border: 1px solid #333;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.qg-card:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.qg-card .icon {
+    font-size: 1.8em;
+    margin-right: 10px;
+}
+
+.qg-card h3 {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.qg-card p {
+    margin: 0;
+    font-size: 0.85em;
+    color: #aaa;
+}
+
+.qg-card .arrow {
+    font-size: 1.2em;
+    color: #fff;
+}
+
+/* QG Reviews */
+.qg-title {
+    margin: 25px 0 10px;
+    font-size: 0.9em;
+    color: #888;
+    text-align: left;
+}
+
+.qg-reviews {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.review {
+    flex: 1;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 12px;
+    font-size: 0.85em;
+    text-align: left;
+}
+
+.review strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.review span {
+    color: gold;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.review p {
+    margin: 0;
+    color: #ccc;
+    font-size: 0.85em;
+}
