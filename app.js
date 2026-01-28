@@ -19,6 +19,7 @@ function haptic() {
 const splash = document.getElementById('splash');
 const app = document.getElementById('app');
 
+// Afficher le splash screen pendant 2 secondes puis basculer sur l'app
 setTimeout(() => {
   splash.style.transition = 'opacity 0.4s ease';
   splash.style.opacity = '0';
@@ -26,8 +27,20 @@ setTimeout(() => {
   setTimeout(() => {
     splash.style.display = 'none';
     app.style.display = 'block';
-  }, 400);
-}, 2000);
+
+    // --- Afficher QG au lieu de l'accueil ---
+    document.querySelectorAll('.page').forEach(p => p.style.display = 'none'); // cacher toutes les pages
+    const qgPage = document.getElementById('page-qg');
+    qgPage.style.display = 'block';
+
+    // Activer bouton QG dans le nav
+    document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+    const qgBtn = document.querySelector('.nav-item[data-page="page-qg"]');
+    if (qgBtn) qgBtn.classList.add('active');
+
+  }, 400); // attendre que le fade out se termine
+
+}, 2000); // splash visible 2 secondes
 
 // =======================================================
 //                      NAVIGATION ONGLETS
