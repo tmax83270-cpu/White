@@ -48,75 +48,41 @@
       <!-- ======================= -->
       <!-- PAGE ACCUEIL -->
       <!-- ======================= -->
-      
-      
       <section class="page" id="page-accueil">
 
         <h2 class="section-title">Nos informations</h2>
 
-  <!-- MEET UP -->
-  <div class="info-box">
-    <div class="info-title">
-      🤝 MEET-UP
-      <span class="info-tag">93 / IDF</span>
-    </div>
+        <!-- MEET UP -->
+        <div class="info-box">
+          <div class="info-title">
+            🤝 MEET-UP
+            <span class="info-tag">93 / IDF</span>
+          </div>
+          <p class="info-sub">
+            Rencontre rapide et sécurisée sur nos points de retrait exclusifs
+            dans le 93 (Ligne H, RER C).
+          </p>
+          <div class="info-row"><span>MINIMUM</span><strong>50€</strong></div>
+          <div class="info-row"><span>HORAIRES</span><strong>13:00 – 03:00</strong></div>
+          <div class="info-row"><span>SÉCURITÉ</span><strong>Lieux discrets</strong></div>
+        </div>
 
-    <p class="info-sub">
-      Rencontre rapide et sécurisée sur nos points de retrait exclusifs
-      dans le 93 (Ligne H, RER C).
-    </p>
+        <!-- LIVRAISON -->
+        <div class="info-box">
+          <div class="info-title">
+            🚚 LIVRAISON
+            <span class="info-tag premium">PREMIUM</span>
+          </div>
+          <p class="info-sub">
+            Service de livraison premium en Île-de-France par nos chauffeurs privés.
+          </p>
+          <div class="info-row"><span>PARIS & IDF PROCHE</span><strong>Min 50€</strong></div>
+          <div class="info-row"><span>77 / 91</span><strong>Min 150€</strong></div>
+          <div class="info-row"><span>COMMANDE</span><strong>24/24</strong></div>
+          <div class="info-row"><span>LIVRAISON</span><strong>14:00 – 02:00</strong></div>
+        </div>
 
-    <div class="info-row">
-      <span>MINIMUM</span>
-      <strong>50€</strong>
-    </div>
-
-    <div class="info-row">
-      <span>HORAIRES</span>
-      <strong>13:00 – 03:00</strong>
-    </div>
-
-    <div class="info-row">
-      <span>SÉCURITÉ</span>
-      <strong>Lieux discrets</strong>
-    </div>
-  </div>
-
-  <!-- LIVRAISON -->
-  <div class="info-box">
-    <div class="info-title">
-      🚚 LIVRAISON
-      <span class="info-tag premium">PREMIUM</span>
-    </div>
-
-    <p class="info-sub">
-      Service de livraison premium en Île-de-France par nos chauffeurs privés.
-    </p>
-
-    <div class="info-row">
-      <span>PARIS & IDF PROCHE</span>
-      <strong>Min 50€</strong>
-    </div>
-
-    <div class="info-row">
-      <span>77 / 91 </span>
-      <strong>Min 150€</strong>
-    </div>
-
-    <div class="info-row">
-      <span>COMMANDE</span>
-      <strong>24/24</strong>
-    </div>
-
-    <div class="info-row">
-      <span>LIVRAISON</span>
-      <strong>14:00 – 02:00</strong>
-    </div>
-  </div>
-
-</section>
-
-  
+      </section>
 
       <!-- ======================= -->
       <!-- PAGE PRODUITS -->
@@ -129,20 +95,55 @@
       <!-- ======================= -->
       <!-- PAGE PRODUIT DÉTAILLÉ -->
       <!-- ======================= -->
-      <div class="product-section" id="product-name">
-  <h2 id="product-title">CALI WEED</h2>
-  <h3 id="product-subtitle">SuperBoof</h3>
-</div>
+      <section class="page" id="page-produit-detail" style="display:none">
 
-<div class="product-section" id="product-description-container">
-  <h3>📝 Description</h3>
-  <p id="product-description"></p>
-</div>
+        <!-- BOUTON RETOUR -->
+        <div class="product-section">
+          <button id="back-to-produits" class="back-btn">⬅ Retour</button>
+        </div>
 
-<div class="product-section" id="product-prices-container">
-  <h3>💰 Prix et quantités</h3>
-  <div id="product-prices" class="price-grid"></div>
-</div>
+        <!-- MEDIA -->
+        <div id="product-media">
+          <video id="product-video" width="100%" controls>
+            <source id="product-video-src" src="" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- NOM PRODUIT & SOUS-NOM -->
+        <div class="product-section" id="product-name">
+          <h2 id="product-title">CALI WEED</h2>
+          <div class="info-row">
+            <h3 id="product-subtitle">SuperBoof</h3>
+          </div>
+        </div>
+
+        <!-- DESCRIPTION -->
+        <div class="product-section" id="product-description-container">
+          <h3>📝 Description</h3>
+          <div class="info-row">
+            <p id="product-description">
+              Description détaillée du produit ici...
+            </p>
+          </div>
+        </div>
+
+        <!-- PRIX ET QUANTITÉS -->
+        <div class="product-section" id="product-prices-container">
+          <h3>💰 Prix et quantités</h3>
+          <div id="product-prices" class="price-grid">
+            <div class="info-row"><span>1g</span><strong>50€</strong></div>
+            <div class="info-row"><span>2g</span><strong>90€</strong></div>
+            <div class="info-row"><span>3g</span><strong>130€</strong></div>
+          </div>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="product-section" id="product-order">
+          <a href="https://wa.me/33758594530" target="_blank" class="contact-btn whatsapp">📱WhatsApp</a>
+          <a href="https://t.me/PanameDelivery" target="_blank" class="contact-btn telegram">✈️Telegram</a>
+        </div>
+
+      </section>
 
       <!-- ======================= -->
       <!-- PAGE CONTACT -->
@@ -189,39 +190,14 @@
         </div>
 
         <!-- Avis clients -->
-<h4 class="qg-title">CONFIANCE CLIENT</h4>
-
-<div class="qg-reviews">
-  <div class="review">
-    <strong>Client 0182</strong>
-    <span>★★★★★</span>
-    <p>"Du caviar la C, merci la team 🙏"</p>
-  </div>
-
-  <div class="review">
-    <strong>Client 0154</strong>
-    <span>★★★★★</span>
-    <p>"Service rapide de nuit, lourd ⚡"</p>
-  </div>
-
-  <div class="review">
-    <strong>Client 0223</strong>
-    <span>★★★★★</span>
-    <p>"Produit conforme et livraison super rapide 👌"</p>
-  </div>
-
-  <div class="review">
-    <strong>Client 0198</strong>
-    <span>★★★★☆</span>
-    <p>"Très satisfait, un peu de retard mais qualité au top 🔥"</p>
-  </div>
-
-  <div class="review">
-    <strong>Client 0145</strong>
-    <span>★★★★★</span>
-    <p>"Le meilleur service de livraison que j’ai testé, recommande !" </p>
-  </div>
-</div>
+        <h4 class="qg-title">CONFIANCE CLIENT</h4>
+        <div class="qg-reviews">
+          <div class="review"><strong>Client 0182</strong><span>★★★★★</span><p>"Du caviar la C, merci la team 🙏"</p></div>
+          <div class="review"><strong>Client 0154</strong><span>★★★★★</span><p>"Service rapide de nuit, lourd ⚡"</p></div>
+          <div class="review"><strong>Client 0223</strong><span>★★★★★</span><p>"Produit conforme et livraison super rapide 👌"</p></div>
+          <div class="review"><strong>Client 0198</strong><span>★★★★☆</span><p>"Très satisfait, un peu de retard mais qualité au top 🔥"</p></div>
+          <div class="review"><strong>Client 0145</strong><span>★★★★★</span><p>"Le meilleur service de livraison que j’ai testé, recommande !" </p></div>
+        </div>
 
       </section>
 
