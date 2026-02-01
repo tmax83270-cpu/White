@@ -438,6 +438,12 @@ p { margin: 10px 0; color: #ccc; }
     padding-top: 30px; 
 }
 
+.percentage-down {
+    font-size: 0.8em;   /* Rend le texte plus petit que le texte normal */
+    color: #ff4d4d;     /* Rouge vif */
+    margin-left: 4px;   /* Petit espace avant le pourcentage */
+}
+
 /* =====================================================
    BOUTON RETOUR (PRO)
 ===================================================== */
