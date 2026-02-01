@@ -439,9 +439,13 @@ p { margin: 10px 0; color: #ccc; }
 }
 
 .percentage-down {
-    font-size: 0.8em;   /* Rend le texte plus petit que le texte normal */
-    color: #ff4d4d;     /* Rouge vif */
-    margin-left: 4px;   /* Petit espace avant le pourcentage */
+    color: red;
+    font-size: 0.8em;
+}
+
+.percentage-up {
+    color: green;
+    font-size: 0.8em;
 }
 
 /* =====================================================
