@@ -66,6 +66,39 @@ document.querySelectorAll('.nav-item').forEach(btn => {
 });
 
 // =======================================================
+//              QG → REDIRECTION VERS PRODUITS
+// =======================================================
+document.querySelectorAll('.qg-card').forEach(card => {
+  card.addEventListener('click', () => {
+    haptic();
+
+    // Désactiver tous les boutons du menu
+    document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+
+    // Activer le bouton Produits
+    const produitsBtn = document.querySelector('.nav-item[data-page="page-produits"]');
+    if (produitsBtn) produitsBtn.classList.add('active');
+
+    // Cacher toutes les pages
+    document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+
+    // Afficher la page Produits
+    const produitsPage = document.getElementById('page-produits');
+    produitsPage.style.display = 'block';
+
+    // Charger tous les produits
+    showProductList(
+      document.querySelector('#page-produits .product-list'),
+      Object.keys(productsData)
+    );
+
+    // Scroll en haut (optionnel mais pro)
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+
+// =======================================================
 //                      CARTES ACCUEIL
 // =======================================================
 document.querySelectorAll('.card').forEach(card => {
