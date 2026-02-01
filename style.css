@@ -440,8 +440,8 @@ p { margin: 10px 0; color: #ccc; }
    BOUTON RETOUR (PRO)
 ===================================================== */
 .back-btn {
-    background: linear-gradient(135deg, #222, #444);
-    color: #fff;
+    background: #f5a623; /* même que voir-btn */
+    color: #000;          /* texte noir */
     border: none;
     padding: 12px 25px;
     border-radius: 25px;
@@ -449,15 +449,21 @@ p { margin: 10px 0; color: #ccc; }
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 15px rgba(245,166,35,0.35); /* shadow similaire à voir-btn */
     display: inline-flex;
     align-items: center;
     gap: 8px;
 }
 
-.back-btn:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
-.back-btn:active { transform: scale(0.98); box-shadow: 0 3px 10px rgba(0,0,0,0.3); }
+.back-btn:hover {
+    background: #ffb84d; /* même hover que voir-btn */
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(245,166,35,0.45);
+}
 
+.back-btn:active {
+    transform: scale(0.95);
+}
 
 
 
