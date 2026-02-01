@@ -212,18 +212,27 @@ p { margin: 10px 0; color: #ccc; }
 .product-bottom h3 { margin: 5px 0; font-weight: normal; font-size: 0.8em; }
 
 .voir-btn {
-    background: #fff;
+    background: #f5a623;
     color: #000;
-    padding: 5px 10px;
+    padding: 6px 12px;
     border-radius: 10px;
-    margin-top: 5px;
+    margin-top: 6px;
     display: inline-block;
     cursor: pointer;
-    transition: 0.2s;
+    font-weight: bold;
+    font-size: 0.85em;
+    transition: all 0.2s ease;
+    box-shadow: 0 3px 8px rgba(245,166,35,0.35);
 }
 
-.voir-btn:hover { background: #ddd; transform: scale(0.98); }
-.voir-btn:active { transform: scale(0.95); }
+.voir-btn:hover {
+    background: #ffb84d;
+    transform: scale(1.05);
+}
+
+.voir-btn:active {
+    transform: scale(0.95);
+}
 
 /* =====================================================
    PRODUIT DÉTAILLÉ
