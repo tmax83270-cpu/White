@@ -269,8 +269,15 @@ p { margin: 10px 0; color: #ccc; }
 }
 #order-btn:hover { background: #333; transform: scale(1.03); }
 
+#product-name {
+    text-align: center;
+}
+
+#product-name h2,
 #product-name h3 {
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
