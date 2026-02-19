@@ -117,20 +117,10 @@ const productsData = {
     description: "Sativa Californienne, très puissante.",
     video: "assets/cali_weed_us_1.mp4",
     prices: [{ qty: "4g", price: "50€" }, { qty: "8g", price: "90€" }]
-  },
-  cali_weed_us_2: {
-    title: "CALI WEED 🇺🇸",
-    subtitle: "RS 11 ⛽️",
-    description: "Sativa Californienne, très puissante.",
-    video: "assets/cali_weed_us_2.mp4",
-    prices: [{ qty: "4g", price: "50€" }, { qty: "8g", price: "90€" }]
-  },
-  amnesia: {
-    title: "WEED 🇳🇱",
-    subtitle: "Amnesia 🌿",
-    description: "Description complète de ton produit ici.",
-    video: "assets/amnesia.mp4",
-    prices: [{ qty: "❌❌", price: "❌❌" }, { qty: "❌❌", price: "❌❌" }]
+  
+
+  
+
   },
   cocaine: {
     title: "COCAINE ❄️",
@@ -152,15 +142,15 @@ const productsData = {
     prices: [{ qty: "2g", price: "50€" }, { qty: "5g", price: "110€" }]
   },
   filtre_73u: {
-    title: "FILTRÉ 73U ⚡️",
+    title: "FILTRÉ 90 ⚡️",
     subtitle: "NO FARM",
-    description: "Hash top qualité, 73u.",
+    description: "Hash top qualité, 90u.",
     video: "assets/filtre_73u.mp4",
-    prices: [{ qty: "❌❌", price: "❌❌" }, { qty: "❌❌", price: "❌❌" }]
+    prices: [{ qty: "7g", price: "50€" }, { qty: "14g", price: "100€" }]
   },
   jaune_mousse: {
     title: "JAUNE MOUSSE 🧽",
-    subtitle: "Gelato, simpson",
+    subtitle: "La Mousse ",
     description: "Hash aromatique, texture unique.",
     video: "assets/jaune_mousse.mp4",
     prices: [
