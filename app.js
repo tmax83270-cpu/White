@@ -116,7 +116,19 @@ const productsData = {
     subtitle: "Super Boof ✨",
     description: "Sativa Californienne, très puissante.",
     video: "assets/cali_weed_us_1.mp4",
-    prices: [{ qty: "4g", price: "50€" }, { qty: "8g", price: "90€" }]
+    prices: [{ qty: "5g", price: "50€" }, { qty: "10g", price: "100€" }]
+  
+
+  
+
+  },
+
+  cali_weed_us: {
+    title: "CALI WEED 🇺🇸",
+    subtitle: "Cookies 🍪",
+    description: "Top qualité Forte odeur bonne defonce .",
+    video: "assets/cali_weed_us.mp4",
+    prices: [{ qty: "5g", price: "50€" }, { qty: "10g", price: "100€" }]
   
 
   
