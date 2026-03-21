@@ -111,12 +111,12 @@ document.querySelectorAll('.card').forEach(card => {
 //                      DONNÉES PRODUITS
 // =======================================================
 const productsData = {
-  cali_weed_us_1: {
-    title: "CALI WEED 🇺🇸",
-    subtitle: "Super Boof ✨",
-    description: "Sativa Californienne, très puissante.",
-    video: "assets/cali_weed_us_1.mp4",
-    prices: [{ qty: "5g", price: "50€" }, { qty: "10g", price: "100€" }]
+  amnesia: {
+    title: "Weed NL 🇳🇱",
+    subtitle: "Amnesia ✨",
+    description: "Beuh hollandaise bonne odeur bon gout .",
+    video: "assets/Amnesia.mp4",
+    prices: [{ qty: "6g", price: "50€" }, { qty: "10g", price: "90€" }]
   
 
   
@@ -128,7 +128,7 @@ const productsData = {
     subtitle: "Cookies 🍪",
     description: "Top qualité Forte odeur bonne defonce .",
     video: "assets/cali_weed_us.mp4",
-    prices: [{ qty: "5g", price: "50€" }, { qty: "10g", price: "100€" }]
+    prices: [{ qty: "❌", price: "❌" }, { qty: "❌", price: "❌" }]
   
 
   
@@ -151,24 +151,24 @@ const productsData = {
     subtitle: "Cailloux 🧊",
     description: "Produit stimulant, effet intense.",
     video: "assets/trois_mmc.mp4",
-    prices: [{ qty: "2g", price: "50€" }, { qty: "5g", price: "110€" }]
+    prices: [{ qty: "❌", price: "❌" }, { qty: "❌", price: "❌" }]
   },
   filtre_73u: {
-    title: "FILTRÉ 90 ⚡️",
-    subtitle: "NO FARM",
-    description: "Hash top qualité, 90u.",
+    title: "FILTRÉ 🍫",
+    subtitle: "Jetfuel",
+    description: "Hash top qualité.",
     video: "assets/filtre_73u.mp4",
-    prices: [{ qty: "7g", price: "50€" }, { qty: "14g", price: "100€" }]
+    prices: [{ qty: "6g", price: "50€" }, { qty: "12g", price: "100€" }]
   },
   jaune_mousse: {
     title: "JAUNE MOUSSE 🧽",
-    subtitle: "La Mousse ",
+    subtitle: "Fraise 🍓 ",
     description: "Hash aromatique, texture unique.",
     video: "assets/jaune_mousse.mp4",
     prices: [
       { qty: "10g", price: "50€" },
-      { qty: "100g", price: "230€" },
-      { qty: "1kilo", price: "2000€" }
+      { qty: "100g", price: "260€" },
+      { qty: "1kilo", price: "2200€" }
     ]
   }
 };
