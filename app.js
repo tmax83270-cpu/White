@@ -125,10 +125,10 @@ const productsData = {
 
   cali_weed_us: {
     title: "CALI WEED 🇺🇸",
-    subtitle: "Cookies 🍪",
+    subtitle: "Tropicana 🏝️",
     description: "Top qualité Forte odeur bonne defonce .",
     video: "assets/cali_weed_us.mp4",
-    prices: [{ qty: "❌", price: "❌" }, { qty: "❌", price: "❌" }]
+    prices: [{ qty: "4.2g", price: "50€" }, { qty: "8.4g", price: "90€" }]
   
 
   
